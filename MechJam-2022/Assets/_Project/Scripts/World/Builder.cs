@@ -5,7 +5,7 @@ namespace Gisha.MechJam.World
     [RequireComponent(typeof(WorldManager))]
     public class Builder : MonoBehaviour
     {
-        [SerializeField] private GameObject prefabToBuild;
+        [SerializeField] private StructureData structureToBuild;
 
         private WorldManager _worldManager;
 
@@ -17,31 +17,50 @@ namespace Gisha.MechJam.World
         private void Update()
         {
             if (Input.GetMouseButtonDown(0))
+                BuildRaycast();
+        }
+
+        private void BuildRaycast()
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out var hitInfo))
             {
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                // Getting modified dimensions for structure building area. 
+                Vector2Int modifiedDimensions =
+                    new Vector2Int(
+                        Mathf.RoundToInt(structureToBuild.Dimensions.x / _worldManager.Grid.CellSize),
+                        Mathf.RoundToInt(structureToBuild.Dimensions.y / _worldManager.Grid.CellSize));
+                Cell[] selectedCells = GridTransform.GetCells(_worldManager.Grid, hitInfo.point,
+                    modifiedDimensions, 0f);
 
-                if (Physics.Raycast(ray, out var hitInfo))
+                if (!CheckForBusyCell(selectedCells))
                 {
-                    var coords = _worldManager.Grid.GetCoordsFromWorldPos(hitInfo.point);
+                    Cell firstCell = selectedCells[0];
+                    Cell lastCell = selectedCells[selectedCells.Length - 1];
+                    Vector3 pos = GridTransform.CenterVector3FromCoords(_worldManager.Grid, firstCell.Coords,
+                        lastCell.Coords);
 
-                    if (!CheckIfCellBusy(coords))
-                    {
-                        Build(coords);
-                        Debug.Log("Build at: " + coords.x + " " + coords.y);
-                    }
+                    BuildStructure(selectedCells, pos);
                 }
             }
         }
 
-        private void Build(Vector2Int coords)
+
+        private void BuildStructure(Cell[] selectedCells, Vector3 pos)
         {
-            Instantiate(prefabToBuild, _worldManager.Grid.GetWorldPosFromCoords(coords), Quaternion.identity);
-            _worldManager.Grid.Cells[coords.x, coords.y].isBusy = true;
+            Instantiate(structureToBuild.Prefab, pos, Quaternion.identity);
+
+            for (int i = 0; i < selectedCells.Length; i++)
+                selectedCells[i].isBusy = true;
         }
 
-        private bool CheckIfCellBusy(Vector2Int coords)
+        private bool CheckForBusyCell(Cell[] cells)
         {
-            return _worldManager.Grid.Cells[coords.x, coords.y].isBusy;
+            for (int i = 0; i < cells.Length; i++)
+                if (cells[i].isBusy)
+                    return true;
+
+            return false;
         }
     }
 }
