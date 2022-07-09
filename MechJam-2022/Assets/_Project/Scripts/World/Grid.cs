@@ -4,10 +4,10 @@ namespace Gisha.MechJam.World
 {
     public class Grid
     {
-        public Grid[,] Cells { private set; get; }
-        public int Width { private set; get; }
-        public int Height { private set; get; }
-        public float CellSize { private set; get; }
+        public Grid[,] Cells { get; }
+        public int Width { get; }
+        public int Height { get; }
+        public float CellSize { get; }
 
         public Grid(int xSize, int ySize, float cellSize)
         {
@@ -17,27 +17,41 @@ namespace Gisha.MechJam.World
             Cells = new Grid[Width, Height];
         }
 
-        public Vector2Int ConvertWorldPosToCoords(Vector3 worldPosition)
+        public Vector2Int GetCoordsFromWorldPos(Vector3 worldPosition)
         {
-            int xCoords = Mathf.FloorToInt(worldPosition.x / CellSize + Width / 2f);
-            int yCoords = Mathf.FloorToInt(worldPosition.z / CellSize + Height / 2f);
-
-            return new Vector2Int(xCoords, yCoords);
+            return GridTransform.GetCoordsFromWorldPos(worldPosition, Height, Width, CellSize);
         }
 
-        public Vector3 GetWorldPosFromCoords(int xCoords, int yCoords)
+        public Vector3 GetWorldPosFromCoords(Vector2Int coords)
         {
-            if (xCoords > Width || yCoords > Height || xCoords < 0 || yCoords < 0)
+            if (coords.x > Width || coords.y > Height || coords.x < 0 || coords.y < 0)
             {
                 Debug.LogError("Out of coords.");
                 return Vector3.zero;
             }
 
-            float worldX = (xCoords - Width / 2f + .5f) * CellSize;
-            float worldY = (yCoords - Height / 2f + .5f) * CellSize;
-            return new Vector3(worldX, 0f, worldY);
+            return GridTransform.GetWorldPosFromCoords(coords, Height, Width, CellSize);
         }
     }
+
+    public static class GridTransform
+    {
+        public static Vector3 GetWorldPosFromCoords(Vector2Int coords, int height, int width, float cellSize)
+        {
+            float worldX = (coords.x - width / 2f + .5f) * cellSize;
+            float worldY = (coords.y - height / 2f + .5f) * cellSize;
+            return new Vector3(worldX, 0f, worldY);
+        }
+
+        public static Vector2Int GetCoordsFromWorldPos(Vector3 worldPosition, int height, int width, float cellSize)
+        {
+            int xCoords = Mathf.FloorToInt(worldPosition.x / cellSize + width / 2f);
+            int yCoords = Mathf.FloorToInt(worldPosition.z / cellSize + height / 2f);
+
+            return new Vector2Int(xCoords, yCoords);
+        }
+    }
+
 
     public class Cell
     {

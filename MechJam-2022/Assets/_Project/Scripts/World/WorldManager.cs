@@ -7,36 +7,22 @@ namespace Gisha.MechJam.World
         [SerializeField] private int width, height;
         [SerializeField] private float cellSize;
 
-        private Grid _grid;
+        public Grid Grid { private set; get; }
 
         private void Awake()
         {
-            _grid = new Grid(width, height, cellSize);
-        }
-
-        private void Update()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                if (Physics.Raycast(ray, out var hitInfo))
-                {
-                    var coords = _grid.ConvertWorldPosToCoords(hitInfo.point);
-                    Debug.Log("Coords are: " + coords.x + " " + coords.y);
-                }
-            }
+            Grid = new Grid(width, height, cellSize);
         }
 
         private void OnDrawGizmos()
         {
             if (!Application.isPlaying)
-                _grid = new Grid(width, height, cellSize);
+                Grid = new Grid(width, height, cellSize);
 
-            for (int x = 0; x < _grid.Cells.GetLength(0); x++)
-            for (int y = 0; y < _grid.Cells.GetLength(1); y++)
-                Gizmos.DrawWireCube(_grid.GetWorldPosFromCoords(x, y),
-                    new Vector3(_grid.CellSize, 0.25f, _grid.CellSize));
+            for (int x = 0; x < Grid.Cells.GetLength(0); x++)
+            for (int y = 0; y < Grid.Cells.GetLength(1); y++)
+                Gizmos.DrawWireCube(Grid.GetWorldPosFromCoords(new Vector2Int(x, y)),
+                    new Vector3(Grid.CellSize, 0.25f, Grid.CellSize));
         }
     }
 }
