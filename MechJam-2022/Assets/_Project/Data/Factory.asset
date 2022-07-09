@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c52e38fa394a56aa270a66e5e23468, type: 3}
   m_Name: Factory
   m_EditorClassIdentifier: 
-  structureName: Mine
-  prefab: {fileID: 8386965862186665495, guid: 87667f60169d2f949adadef22745be54, type: 3}
+  structureName: Factory
+  prefab: {fileID: 2010284035925870262, guid: 7ef270142afba0b4e9c717844b4b9ca3, type: 3}

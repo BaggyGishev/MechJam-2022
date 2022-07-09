@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c52e38fa394a56aa270a66e5e23468, type: 3}
   m_Name: Powerplant
   m_EditorClassIdentifier: 
-  structureName: Mine
-  prefab: {fileID: 8386965862186665495, guid: 87667f60169d2f949adadef22745be54, type: 3}
+  structureName: Power Plant
+  prefab: {fileID: 2544028854721199203, guid: 9a065ba1fe2266b4f8f0ff0ffedf0565, type: 3}

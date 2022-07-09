@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Barracks
   m_EditorClassIdentifier: 
   structureName: Barracks
-  prefab: {fileID: 8386965862186665495, guid: 87667f60169d2f949adadef22745be54, type: 3}
+  prefab: {fileID: 5033631716084465575, guid: f69eb53ab8222e04f9118bba7fd2aa2e, type: 3}
