@@ -4,7 +4,7 @@ namespace Gisha.MechJam.World
 {
     public class Grid
     {
-        public Grid[,] Cells { get; }
+        public Cell[,] Cells { get; }
         public int Width { get; }
         public int Height { get; }
         public float CellSize { get; }
@@ -14,7 +14,11 @@ namespace Gisha.MechJam.World
             Width = xSize;
             Height = ySize;
             CellSize = cellSize;
-            Cells = new Grid[Width, Height];
+
+            Cells = new Cell[Width, Height];
+            for (int x = 0; x < Width; x++)
+            for (int y = 0; y < Height; y++)
+                Cells[x, y] = new Cell();
         }
 
         public Vector2Int GetCoordsFromWorldPos(Vector3 worldPosition)
@@ -55,5 +59,6 @@ namespace Gisha.MechJam.World
 
     public class Cell
     {
+        public bool isBusy;
     }
 }

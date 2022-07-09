@@ -23,8 +23,12 @@ namespace Gisha.MechJam.World
                 if (Physics.Raycast(ray, out var hitInfo))
                 {
                     var coords = _worldManager.Grid.GetCoordsFromWorldPos(hitInfo.point);
-                    Build(coords);
-                    Debug.Log("Build at: " + coords.x + " " + coords.y);
+
+                    if (!CheckIfCellBusy(coords))
+                    {
+                        Build(coords);
+                        Debug.Log("Build at: " + coords.x + " " + coords.y);
+                    }
                 }
             }
         }
@@ -32,6 +36,12 @@ namespace Gisha.MechJam.World
         private void Build(Vector2Int coords)
         {
             Instantiate(prefabToBuild, _worldManager.Grid.GetWorldPosFromCoords(coords), Quaternion.identity);
+            _worldManager.Grid.Cells[coords.x, coords.y].isBusy = true;
+        }
+
+        private bool CheckIfCellBusy(Vector2Int coords)
+        {
+            return _worldManager.Grid.Cells[coords.x, coords.y].isBusy;
         }
     }
 }
