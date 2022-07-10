@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gisha.MechJam
+namespace Gisha.MechJam.Core
 {
     public class CameraController : MonoBehaviour
     {
