@@ -8,7 +8,9 @@ namespace Gisha.MechJam.World
         public int Width { get; }
         public int Height { get; }
         public float CellSize { get; }
-
+        public Cell FirstCell => Cells[0, 0];
+        public Cell LastCell => Cells[Cells.GetLength(0) - 1, Cells.GetLength(1) - 1];
+        
         public Grid(int xSize, int ySize, float cellSize)
         {
             Width = xSize;
