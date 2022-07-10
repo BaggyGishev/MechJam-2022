@@ -23,10 +23,7 @@ namespace Gisha.MechJam.World
                 Cells[x, y] = new Cell(new Vector2Int(x, y));
         }
 
-        public Vector2Int GetCoordsFromWorldPos(Vector3 worldPosition)
-        {
-            return GridTransform.GetCoordsFromWorldPos(worldPosition, this);
-        }
+        #region Position/Coords converting
 
         public Vector3 GetWorldPosFromCoords(Vector2Int coords)
         {
@@ -36,35 +33,39 @@ namespace Gisha.MechJam.World
                 return Vector3.zero;
             }
 
-            return GridTransform.GetWorldPosFromCoords(coords, this);
-        }
-    }
-
-    internal static class GridTransform
-    {
-        internal static Vector3 GetWorldPosFromCoords(Vector2Int coords, Grid grid)
-        {
-            float worldX = (coords.x - grid.Width / 2f + .5f) * grid.CellSize;
-            float worldY = (coords.y - grid.Height / 2f + .5f) * grid.CellSize;
+            float worldX = (coords.x - Width / 2f + .5f) * CellSize;
+            float worldY = (coords.y - Height / 2f + .5f) * CellSize;
             return new Vector3(worldX, 0f, worldY);
         }
 
-        internal static Vector2Int GetCoordsFromWorldPos(Vector3 worldPosition, Grid grid)
+        private Vector2Int GetCoordsFromWorldPos(Vector3 worldPosition)
         {
-            int xCoords = Mathf.FloorToInt(worldPosition.x / grid.CellSize + grid.Width / 2f);
-            int yCoords = Mathf.FloorToInt(worldPosition.z / grid.CellSize + grid.Height / 2f);
+            int xCoords = Mathf.FloorToInt(worldPosition.x / CellSize + Width / 2f);
+            int yCoords = Mathf.FloorToInt(worldPosition.z / CellSize + Height / 2f);
 
             return new Vector2Int(xCoords, yCoords);
         }
 
-        internal static Cell[] GetCells(Grid grid, Vector3 position, Vector2Int areaDimensions, float yEulerAngles)
+        public Vector3 CenterWorldPosFromCoords(Vector2Int a, Vector2Int b)
+        {
+            Vector3 firstPos = GetWorldPosFromCoords(a);
+            Vector3 lastPos = GetWorldPosFromCoords(b);
+
+            return (firstPos + lastPos) / 2f;
+        }
+
+        #endregion
+
+        #region Area Getter
+
+        public Cell[] GetCellsArea(Vector3 position, Vector2Int areaDimensions, float yEulerAngles)
         {
             int yRotation = Mathf.RoundToInt(yEulerAngles);
 
             int newXSize = yRotation % 180f == 0 ? areaDimensions.x : areaDimensions.y;
             int newZSize = yRotation % 180f == 0 ? areaDimensions.y : areaDimensions.x;
 
-            Vector2Int inputCoords = GetCoordsFromWorldPos(position, grid);
+            Vector2Int inputCoords = GetCoordsFromWorldPos(position);
             Vector2 offset = GetOffsetCoords(newXSize, newZSize);
 
             // Applying offsets differently for x/y % 2 == 0 or x/y % 2 != 0.
@@ -84,14 +85,14 @@ namespace Gisha.MechJam.World
                 int x = startCoords.x + aX;
                 int z = startCoords.y + aZ;
 
-                if (x >= 0 && x < grid.Width && z >= 0 && z < grid.Height)
-                    result[aX + (aZ * newXSize)] = grid.Cells[x, z];
+                if (x >= 0 && x < Width && z >= 0 && z < Height)
+                    result[aX + (aZ * newXSize)] = Cells[x, z];
             }
 
             return result;
         }
 
-        private static Vector2 GetOffsetCoords(int xSize, int zSize)
+        private Vector2 GetOffsetCoords(int xSize, int zSize)
         {
             float xOffset = xSize % 2 == 0 ? xSize / 2f - 0.5f : Mathf.Ceil(xSize / 2f);
             float zOffset = zSize % 2 == 0 ? zSize / 2f - 0.5f : Mathf.Ceil(zSize / 2f);
@@ -99,19 +100,15 @@ namespace Gisha.MechJam.World
             return new Vector2(xOffset, zOffset);
         }
 
-        internal static Vector3 CenterVector3FromCoords(Grid grid, Vector2Int a, Vector2Int b)
-        {
-            Vector3 firstPos = GetWorldPosFromCoords(a, grid);
-            Vector3 lastPos = GetWorldPosFromCoords(b, grid);
-
-            return (firstPos + lastPos) / 2f;
-        }
+        #endregion
     }
-
 
     public class Cell
     {
-        public bool isBusy;
+        public bool isBlockedByStructure = false, isOutOfBuildArea = true;
+        
+        public bool IsBusy => isBlockedByStructure || isOutOfBuildArea;
+        
         public Vector2Int Coords { get; }
 
         public Cell(Vector2Int coords)

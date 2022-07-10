@@ -21,14 +21,7 @@ namespace Gisha.MechJam.Core
         private Vector3 _top, _bottom;
         private Vector3 _movementInput;
         bool _isLargeView;
-
-        private WorldManager _worldManager;
-
-        private void Awake()
-        {
-            _worldManager = FindObjectOfType<WorldManager>();
-        }
-
+        
         private void Start()
         {
             _yDeltaRotation = transform.rotation.eulerAngles.y;
@@ -38,8 +31,8 @@ namespace Gisha.MechJam.Core
             _height = transform.position.y;
             _heightStep = (maxHeight - minHeight) / heightStepsCount;
 
-            _top = _worldManager.Grid.GetWorldPosFromCoords(_worldManager.Grid.LastCell.Coords);
-            _bottom = _worldManager.Grid.GetWorldPosFromCoords(_worldManager.Grid.FirstCell.Coords);
+            _top = WorldManager.Grid.GetWorldPosFromCoords(WorldManager.Grid.LastCell.Coords);
+            _bottom = WorldManager.Grid.GetWorldPosFromCoords(WorldManager.Grid.FirstCell.Coords);
         }
 
         private void Update()

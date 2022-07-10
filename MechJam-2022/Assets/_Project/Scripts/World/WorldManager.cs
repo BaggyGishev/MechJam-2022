@@ -7,7 +7,7 @@ namespace Gisha.MechJam.World
         [SerializeField] private int width, height;
         [SerializeField] private float cellSize;
 
-        public Grid Grid { private set; get; }
+        public static Grid Grid { private set; get; }
 
         private void Awake()
         {
@@ -22,13 +22,13 @@ namespace Gisha.MechJam.World
             for (int x = 0; x < Grid.Cells.GetLength(0); x++)
             for (int y = 0; y < Grid.Cells.GetLength(1); y++)
             {
-                if (Grid.Cells[x, y].isBusy)
+                if (Grid.Cells[x, y].IsBusy)
                     Gizmos.color = Color.red;
                 else
                     Gizmos.color = Color.blue;
 
                 Gizmos.DrawWireCube(Grid.GetWorldPosFromCoords(new Vector2Int(x, y)),
-                    new Vector3(Grid.CellSize, 0.25f, Grid.CellSize));
+                    new Vector3(Grid.CellSize, 0.01f, Grid.CellSize));
             }
         }
     }

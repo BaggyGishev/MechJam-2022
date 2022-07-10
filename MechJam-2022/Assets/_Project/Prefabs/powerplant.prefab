@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2883962302375159513}
   - component: {fileID: 2281706505881217404}
   - component: {fileID: 4057400987825970614}
+  - component: {fileID: -4497636740146958281}
   m_Layer: 0
   m_Name: powerplant
   m_TagString: Untagged
@@ -86,3 +87,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-4497636740146958281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2544028854721199203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1174c647f75f4d52816ea612671dcbbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  structureData: {fileID: 11400000, guid: dc7534e5ea63410479b7921ca1969ef5, type: 2}
