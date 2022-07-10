@@ -1,3 +1,4 @@
+using Gisha.MechJam.UI;
 using UnityEngine;
 
 namespace Gisha.MechJam.World.Building
@@ -5,12 +6,33 @@ namespace Gisha.MechJam.World.Building
     [RequireComponent(typeof(WorldManager))]
     public class Builder : MonoBehaviour
     {
-        [SerializeField] private StructureData structureToBuild;
+        private StructureData _structureToBuild;
+
+        private void OnEnable()
+        {
+            StructureUIButton.OnStructureSelected += SelectStructure;
+        }
+
+        private void OnDisable()
+        {
+            StructureUIButton.OnStructureSelected -= SelectStructure;
+        }
 
         private void Update()
         {
+            if (_structureToBuild == null)
+                return;
+
             if (Input.GetMouseButtonDown(0))
                 BuildRaycast();
+        }
+
+        public void SelectStructure(StructureData structureData)
+        {
+            if (_structureToBuild == structureData)
+                _structureToBuild = null;
+            else
+                _structureToBuild = structureData;
         }
 
         private void BuildRaycast()
@@ -20,7 +42,7 @@ namespace Gisha.MechJam.World.Building
             {
                 // Getting modified dimensions for structure building area. 
                 Cell[] selectedCells = WorldManager.Grid.GetCellsArea(hitInfo.point,
-                    structureToBuild.GetDimensions(WorldManager.Grid.CellSize), 0f);
+                    _structureToBuild.GetDimensions(WorldManager.Grid.CellSize), 0f);
 
                 if (!CheckForBusyCell(selectedCells))
                 {
@@ -36,7 +58,7 @@ namespace Gisha.MechJam.World.Building
 
         private void BuildStructure(Vector3 pos)
         {
-            Instantiate(structureToBuild.Prefab, pos, Quaternion.identity);
+            Instantiate(_structureToBuild.Prefab, pos, Quaternion.identity);
         }
 
         private bool CheckForBusyCell(Cell[] cells)
