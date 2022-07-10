@@ -7,5 +7,7 @@ namespace Gisha.MechJam.Core
     public class GameData : ScriptableObject
     {
         [SerializeField] private StructureData[] structuresData;
+
+        public StructureData[] StructuresData => structuresData;
     }
 }

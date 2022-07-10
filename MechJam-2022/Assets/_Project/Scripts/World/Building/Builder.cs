@@ -10,12 +10,12 @@ namespace Gisha.MechJam.World.Building
 
         private void OnEnable()
         {
-            StructureUIButton.OnStructureSelected += SelectStructure;
+            StructureUIElement.OnStructureSelected += SelectStructure;
         }
 
         private void OnDisable()
         {
-            StructureUIButton.OnStructureSelected -= SelectStructure;
+            StructureUIElement.OnStructureSelected -= SelectStructure;
         }
 
         private void Update()
