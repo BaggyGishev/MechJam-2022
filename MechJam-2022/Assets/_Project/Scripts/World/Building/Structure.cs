@@ -6,15 +6,16 @@ namespace Gisha.MechJam.World.Building
     {
         [SerializeField] private StructureData structureData;
 
-        private Cell[] _takenArea;
+        public Cell[] takenArea;
 
         private void Start()
         {
-            _takenArea = WorldManager.Grid.GetCellsArea(transform.position,
-                structureData.GetDimensions(WorldManager.Grid.CellSize), 0f);
+            if (takenArea == null)
+                takenArea = WorldManager.Grid.GetCellsArea(transform.position,
+                    structureData.GetDimensions(WorldManager.Grid.CellSize), 0f);
 
-            for (int i = 0; i < _takenArea.Length; i++)
-                _takenArea[i].isBlockedByStructure = true;
+            for (int i = 0; i < takenArea.Length; i++)
+                takenArea[i].isBlockedByStructure = true;
         }
     }
 }

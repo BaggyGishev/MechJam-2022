@@ -51,14 +51,15 @@ namespace Gisha.MechJam.World.Building
                     Vector3 pos = WorldManager.Grid.CenterWorldPosFromCoords(firstCell.Coords,
                         lastCell.Coords);
 
-                    BuildStructure(pos);
+                    BuildStructure(pos, selectedCells);
                 }
             }
         }
 
-        private void BuildStructure(Vector3 pos)
+        private void BuildStructure(Vector3 pos, Cell[] selectedCells)
         {
-            Instantiate(_structureToBuild.Prefab, pos, Quaternion.identity);
+            var structure = Instantiate(_structureToBuild.Prefab, pos, Quaternion.identity).GetComponent<Structure>();
+            structure.takenArea = selectedCells;
         }
 
         private bool CheckForBusyCell(Cell[] cells)

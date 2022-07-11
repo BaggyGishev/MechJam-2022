@@ -20,7 +20,7 @@ namespace Gisha.MechJam.World.Building
                                      Prefab.transform.localScale.x / cellSize);
             int y = Mathf.CeilToInt((MeshFilter.sharedMesh.bounds.max.z - MeshFilter.sharedMesh.bounds.min.z) *
                                      Prefab.transform.localScale.z / cellSize);
-            
+
             return new Vector2Int(x, y);
         }
     }
