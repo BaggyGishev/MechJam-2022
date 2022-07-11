@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7128955861052397256}
   - component: {fileID: 7128955861059336510}
+  - component: {fileID: 7128955860928953703}
+  - component: {fileID: 7128955860928953704}
   m_Layer: 0
   m_Name: Mech
   m_TagString: Untagged
@@ -51,6 +53,41 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!195 &7128955860928953703
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7128955861051902696}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 100
+  m_StoppingDistance: 5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 3
+--- !u!114 &7128955860928953704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7128955861051902696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c04be617870c904a889f40c1dee6491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &7128955861051902698
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,14 +730,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 065d537b337e7634b8879651b07679dd, type: 3}
   m_PrefabInstance: {fileID: 2178174817038449054}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2178174817038050072 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400006, guid: 065d537b337e7634b8879651b07679dd, type: 3}
-  m_PrefabInstance: {fileID: 2178174817038449054}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2178174817038050074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 065d537b337e7634b8879651b07679dd, type: 3}
+  m_PrefabInstance: {fileID: 2178174817038449054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2178174817038050072 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400006, guid: 065d537b337e7634b8879651b07679dd, type: 3}
   m_PrefabInstance: {fileID: 2178174817038449054}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3421508748488953401
