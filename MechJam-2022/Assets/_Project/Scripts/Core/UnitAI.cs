@@ -25,6 +25,9 @@ namespace Gisha.MechJam.Core
 
         private void LateUpdate()
         {
+            if (_navMeshAgent.velocity == Vector3.zero)
+                return;
+
             var rotation = Quaternion.LookRotation(_navMeshAgent.velocity.normalized);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSmoothness * Time.deltaTime);
         }
