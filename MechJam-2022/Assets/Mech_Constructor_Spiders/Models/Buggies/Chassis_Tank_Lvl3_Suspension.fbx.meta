@@ -1,227 +1,83 @@
 fileFormatVersion: 2
 guid: a4c43aeb7727d7e479a0bc3039da5423
 ModelImporter:
-  serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: Body_Geom
-  - first:
-      1: 100002
-    second: //RootNode
-  - first:
-      1: 100004
-    second: Mount_Top3
-  - first:
-      1: 100006
-    second: Part_FL_Geom
-  - first:
-      1: 100008
-    second: Part_FR_Geom
-  - first:
-      1: 100010
-    second: Part_RL_Geom
-  - first:
-      1: 100012
-    second: Part_RR_Geom
-  - first:
-      1: 100014
-    second: Pelvis
-  - first:
-      1: 100016
-    second: ROOT
-  - first:
-      1: 100018
-    second: Top
-  - first:
-      1: 100020
-    second: Tracks_FL
-  - first:
-      1: 100022
-    second: Tracks_FL_End
-  - first:
-      1: 100024
-    second: Tracks_FL_Geom
-  - first:
-      1: 100026
-    second: Tracks_FR
-  - first:
-      1: 100028
-    second: Tracks_FR_End
-  - first:
-      1: 100030
-    second: Tracks_FR_Geom
-  - first:
-      1: 100032
-    second: Tracks_RL
-  - first:
-      1: 100034
-    second: Tracks_RL_End
-  - first:
-      1: 100036
-    second: Tracks_RL_Geom
-  - first:
-      1: 100038
-    second: Tracks_RR
-  - first:
-      1: 100040
-    second: Tracks_RR_End
-  - first:
-      1: 100042
-    second: Tracks_RR_Geom
-  - first:
-      4: 400000
-    second: Body_Geom
-  - first:
-      4: 400002
-    second: //RootNode
-  - first:
-      4: 400004
-    second: Mount_Top3
-  - first:
-      4: 400006
-    second: Part_FL_Geom
-  - first:
-      4: 400008
-    second: Part_FR_Geom
-  - first:
-      4: 400010
-    second: Part_RL_Geom
-  - first:
-      4: 400012
-    second: Part_RR_Geom
-  - first:
-      4: 400014
-    second: Pelvis
-  - first:
-      4: 400016
-    second: ROOT
-  - first:
-      4: 400018
-    second: Top
-  - first:
-      4: 400020
-    second: Tracks_FL
-  - first:
-      4: 400022
-    second: Tracks_FL_End
-  - first:
-      4: 400024
-    second: Tracks_FL_Geom
-  - first:
-      4: 400026
-    second: Tracks_FR
-  - first:
-      4: 400028
-    second: Tracks_FR_End
-  - first:
-      4: 400030
-    second: Tracks_FR_Geom
-  - first:
-      4: 400032
-    second: Tracks_RL
-  - first:
-      4: 400034
-    second: Tracks_RL_End
-  - first:
-      4: 400036
-    second: Tracks_RL_Geom
-  - first:
-      4: 400038
-    second: Tracks_RR
-  - first:
-      4: 400040
-    second: Tracks_RR_End
-  - first:
-      4: 400042
-    second: Tracks_RR_Geom
-  - first:
-      23: 2300000
-    second: Body_Geom
-  - first:
-      23: 2300002
-    second: Part_FL_Geom
-  - first:
-      23: 2300004
-    second: Part_FR_Geom
-  - first:
-      23: 2300006
-    second: Part_RL_Geom
-  - first:
-      23: 2300008
-    second: Part_RR_Geom
-  - first:
-      23: 2300010
-    second: Tracks_FL_Geom
-  - first:
-      23: 2300012
-    second: Tracks_FR_Geom
-  - first:
-      23: 2300014
-    second: Tracks_RL_Geom
-  - first:
-      23: 2300016
-    second: Tracks_RR_Geom
-  - first:
-      33: 3300000
-    second: Body_Geom
-  - first:
-      33: 3300002
-    second: Part_FL_Geom
-  - first:
-      33: 3300004
-    second: Part_FR_Geom
-  - first:
-      33: 3300006
-    second: Part_RL_Geom
-  - first:
-      33: 3300008
-    second: Part_RR_Geom
-  - first:
-      33: 3300010
-    second: Tracks_FL_Geom
-  - first:
-      33: 3300012
-    second: Tracks_FR_Geom
-  - first:
-      33: 3300014
-    second: Tracks_RL_Geom
-  - first:
-      33: 3300016
-    second: Tracks_RR_Geom
-  - first:
-      43: 4300000
-    second: Part_FL_Geom
-  - first:
-      43: 4300002
-    second: Tracks_FL_Geom
-  - first:
-      43: 4300004
-    second: Part_FR_Geom
-  - first:
-      43: 4300006
-    second: Tracks_FR_Geom
-  - first:
-      43: 4300008
-    second: Part_RR_Geom
-  - first:
-      43: 4300010
-    second: Tracks_RR_Geom
-  - first:
-      43: 4300012
-    second: Tracks_RL_Geom
-  - first:
-      43: 4300014
-    second: Part_RL_Geom
-  - first:
-      43: 4300016
-    second: Body_Geom
-  - first:
-      95: 9500000
-    second: //RootNode
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body_Geom
+    100002: //RootNode
+    100004: Mount_Top3
+    100006: Part_FL_Geom
+    100008: Part_FR_Geom
+    100010: Part_RL_Geom
+    100012: Part_RR_Geom
+    100014: Pelvis
+    100016: ROOT
+    100018: Top
+    100020: Tracks_FL
+    100022: Tracks_FL_End
+    100024: Tracks_FL_Geom
+    100026: Tracks_FR
+    100028: Tracks_FR_End
+    100030: Tracks_FR_Geom
+    100032: Tracks_RL
+    100034: Tracks_RL_End
+    100036: Tracks_RL_Geom
+    100038: Tracks_RR
+    100040: Tracks_RR_End
+    100042: Tracks_RR_Geom
+    400000: Body_Geom
+    400002: //RootNode
+    400004: Mount_Top3
+    400006: Part_FL_Geom
+    400008: Part_FR_Geom
+    400010: Part_RL_Geom
+    400012: Part_RR_Geom
+    400014: Pelvis
+    400016: ROOT
+    400018: Top
+    400020: Tracks_FL
+    400022: Tracks_FL_End
+    400024: Tracks_FL_Geom
+    400026: Tracks_FR
+    400028: Tracks_FR_End
+    400030: Tracks_FR_Geom
+    400032: Tracks_RL
+    400034: Tracks_RL_End
+    400036: Tracks_RL_Geom
+    400038: Tracks_RR
+    400040: Tracks_RR_End
+    400042: Tracks_RR_Geom
+    2300000: Body_Geom
+    2300002: Part_FL_Geom
+    2300004: Part_FR_Geom
+    2300006: Part_RL_Geom
+    2300008: Part_RR_Geom
+    2300010: Tracks_FL_Geom
+    2300012: Tracks_FR_Geom
+    2300014: Tracks_RL_Geom
+    2300016: Tracks_RR_Geom
+    3300000: Body_Geom
+    3300002: Part_FL_Geom
+    3300004: Part_FR_Geom
+    3300006: Part_RL_Geom
+    3300008: Part_RR_Geom
+    3300010: Tracks_FL_Geom
+    3300012: Tracks_FR_Geom
+    3300014: Tracks_RL_Geom
+    3300016: Tracks_RR_Geom
+    4300000: Part_FL_Geom
+    4300002: Tracks_FL_Geom
+    4300004: Part_FR_Geom
+    4300006: Tracks_FR_Geom
+    4300008: Part_RR_Geom
+    4300010: Tracks_RR_Geom
+    4300012: Tracks_RL_Geom
+    4300014: Part_RL_Geom
+    4300016: Body_Geom
+    9500000: //RootNode
   externalObjects: {}
   materials:
-    materialImportMode: 0
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -238,7 +94,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -253,31 +108,21 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
-    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 0
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
   tangentSpace:
@@ -285,13 +130,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 4
     normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -301,17 +143,14 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

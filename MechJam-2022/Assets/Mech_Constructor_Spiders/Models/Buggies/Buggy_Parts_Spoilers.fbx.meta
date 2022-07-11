@@ -1,104 +1,42 @@
 fileFormatVersion: 2
 guid: 4ca1687bb9d170342aaf3df10df12e02
 ModelImporter:
-  serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      1: 100002
-    second: Side_Cap
-  - first:
-      1: 100004
-    second: Side_Cap_Geom
-  - first:
-      1: 100006
-    second: Spoiler_Lvl1
-  - first:
-      1: 100008
-    second: Spoiler_Lvl1_Geom
-  - first:
-      1: 100010
-    second: Spoiler_Lvl2
-  - first:
-      1: 100012
-    second: Spoiler_Lvl2_Geom3
-  - first:
-      1: 100014
-    second: Spoiler_Lvl3
-  - first:
-      1: 100016
-    second: Spoiler_Lvl3_Geom
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      4: 400002
-    second: Side_Cap
-  - first:
-      4: 400004
-    second: Side_Cap_Geom
-  - first:
-      4: 400006
-    second: Spoiler_Lvl1
-  - first:
-      4: 400008
-    second: Spoiler_Lvl1_Geom
-  - first:
-      4: 400010
-    second: Spoiler_Lvl2
-  - first:
-      4: 400012
-    second: Spoiler_Lvl2_Geom3
-  - first:
-      4: 400014
-    second: Spoiler_Lvl3
-  - first:
-      4: 400016
-    second: Spoiler_Lvl3_Geom
-  - first:
-      23: 2300000
-    second: Side_Cap_Geom
-  - first:
-      23: 2300002
-    second: Spoiler_Lvl1_Geom
-  - first:
-      23: 2300004
-    second: Spoiler_Lvl2_Geom3
-  - first:
-      23: 2300006
-    second: Spoiler_Lvl3_Geom
-  - first:
-      33: 3300000
-    second: Side_Cap_Geom
-  - first:
-      33: 3300002
-    second: Spoiler_Lvl1_Geom
-  - first:
-      33: 3300004
-    second: Spoiler_Lvl2_Geom3
-  - first:
-      33: 3300006
-    second: Spoiler_Lvl3_Geom
-  - first:
-      43: 4300000
-    second: Side_Cap_Geom
-  - first:
-      43: 4300002
-    second: Spoiler_Lvl1_Geom
-  - first:
-      43: 4300004
-    second: Spoiler_Lvl2_Geom3
-  - first:
-      43: 4300006
-    second: Spoiler_Lvl3_Geom
-  - first:
-      95: 9500000
-    second: //RootNode
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Side_Cap
+    100004: Side_Cap_Geom
+    100006: Spoiler_Lvl1
+    100008: Spoiler_Lvl1_Geom
+    100010: Spoiler_Lvl2
+    100012: Spoiler_Lvl2_Geom3
+    100014: Spoiler_Lvl3
+    100016: Spoiler_Lvl3_Geom
+    400000: //RootNode
+    400002: Side_Cap
+    400004: Side_Cap_Geom
+    400006: Spoiler_Lvl1
+    400008: Spoiler_Lvl1_Geom
+    400010: Spoiler_Lvl2
+    400012: Spoiler_Lvl2_Geom3
+    400014: Spoiler_Lvl3
+    400016: Spoiler_Lvl3_Geom
+    2300000: Side_Cap_Geom
+    2300002: Spoiler_Lvl1_Geom
+    2300004: Spoiler_Lvl2_Geom3
+    2300006: Spoiler_Lvl3_Geom
+    3300000: Side_Cap_Geom
+    3300002: Spoiler_Lvl1_Geom
+    3300004: Spoiler_Lvl2_Geom3
+    3300006: Spoiler_Lvl3_Geom
+    4300000: Side_Cap_Geom
+    4300002: Spoiler_Lvl1_Geom
+    4300004: Spoiler_Lvl2_Geom3
+    4300006: Spoiler_Lvl3_Geom
+    9500000: //RootNode
   externalObjects: {}
   materials:
-    materialImportMode: 0
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -115,7 +53,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -130,31 +67,21 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
-    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 0
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
   tangentSpace:
@@ -162,13 +89,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 4
     normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -178,17 +102,14 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

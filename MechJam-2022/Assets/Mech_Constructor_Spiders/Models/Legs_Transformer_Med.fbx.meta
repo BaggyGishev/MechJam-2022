@@ -1,302 +1,108 @@
 fileFormatVersion: 2
 guid: 9444037632b70c9469a4c8df9ece3dc1
 ModelImporter:
-  serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: FL_Foot
-  - first:
-      1: 100002
-    second: FL_KneePad
-  - first:
-      1: 100004
-    second: FL_Lower_Leg
-  - first:
-      1: 100006
-    second: FL_Lower_Leg_End
-  - first:
-      1: 100008
-    second: FL_Mid_Leg
-  - first:
-      1: 100010
-    second: FL_Upper_Leg
-  - first:
-      1: 100012
-    second: FL_Wheel
-  - first:
-      1: 100014
-    second: FL_Wheel_Geom
-  - first:
-      1: 100016
-    second: FR_Foot
-  - first:
-      1: 100018
-    second: FR_KneePad
-  - first:
-      1: 100020
-    second: FR_Lower_Leg
-  - first:
-      1: 100022
-    second: FR_Lower_Leg_End
-  - first:
-      1: 100024
-    second: FR_Mid_Leg
-  - first:
-      1: 100026
-    second: FR_Upper_Leg
-  - first:
-      1: 100028
-    second: FR_Wheel
-  - first:
-      1: 100030
-    second: FR_Wheel_Geom
-  - first:
-      1: 100032
-    second: FrontPlate
-  - first:
-      1: 100034
-    second: //RootNode
-  - first:
-      1: 100036
-    second: Legs_Transformer_Med_Geom
-  - first:
-      1: 100038
-    second: Mount_top
-  - first:
-      1: 100040
-    second: Pelvis
-  - first:
-      1: 100042
-    second: RL_Fin_Mid
-  - first:
-      1: 100044
-    second: RL_Fin_Up
-  - first:
-      1: 100046
-    second: RL_Foot
-  - first:
-      1: 100048
-    second: RL_Lower_Leg
-  - first:
-      1: 100050
-    second: RL_Lower_Leg_End
-  - first:
-      1: 100052
-    second: RL_Mid_Leg
-  - first:
-      1: 100054
-    second: RL_Track_Geom
-  - first:
-      1: 100056
-    second: RL_Upper_Leg
-  - first:
-      1: 100058
-    second: RL_Wheel
-  - first:
-      1: 100060
-    second: ROOT
-  - first:
-      1: 100062
-    second: RR_Fin_Mid
-  - first:
-      1: 100064
-    second: RR_Fin_Up
-  - first:
-      1: 100066
-    second: RR_Foot
-  - first:
-      1: 100068
-    second: RR_Lower_Leg
-  - first:
-      1: 100070
-    second: RR_Lower_Leg_End
-  - first:
-      1: 100072
-    second: RR_Mid_Leg
-  - first:
-      1: 100074
-    second: RR_Track_Geom
-  - first:
-      1: 100076
-    second: RR_Upper_Leg
-  - first:
-      1: 100078
-    second: RR_Wheel
-  - first:
-      1: 100080
-    second: Top
-  - first:
-      4: 400000
-    second: FL_Foot
-  - first:
-      4: 400002
-    second: FL_KneePad
-  - first:
-      4: 400004
-    second: FL_Lower_Leg
-  - first:
-      4: 400006
-    second: FL_Lower_Leg_End
-  - first:
-      4: 400008
-    second: FL_Mid_Leg
-  - first:
-      4: 400010
-    second: FL_Upper_Leg
-  - first:
-      4: 400012
-    second: FL_Wheel
-  - first:
-      4: 400014
-    second: FL_Wheel_Geom
-  - first:
-      4: 400016
-    second: FR_Foot
-  - first:
-      4: 400018
-    second: FR_KneePad
-  - first:
-      4: 400020
-    second: FR_Lower_Leg
-  - first:
-      4: 400022
-    second: FR_Lower_Leg_End
-  - first:
-      4: 400024
-    second: FR_Mid_Leg
-  - first:
-      4: 400026
-    second: FR_Upper_Leg
-  - first:
-      4: 400028
-    second: FR_Wheel
-  - first:
-      4: 400030
-    second: FR_Wheel_Geom
-  - first:
-      4: 400032
-    second: FrontPlate
-  - first:
-      4: 400034
-    second: //RootNode
-  - first:
-      4: 400036
-    second: Legs_Transformer_Med_Geom
-  - first:
-      4: 400038
-    second: Mount_top
-  - first:
-      4: 400040
-    second: Pelvis
-  - first:
-      4: 400042
-    second: RL_Fin_Mid
-  - first:
-      4: 400044
-    second: RL_Fin_Up
-  - first:
-      4: 400046
-    second: RL_Foot
-  - first:
-      4: 400048
-    second: RL_Lower_Leg
-  - first:
-      4: 400050
-    second: RL_Lower_Leg_End
-  - first:
-      4: 400052
-    second: RL_Mid_Leg
-  - first:
-      4: 400054
-    second: RL_Track_Geom
-  - first:
-      4: 400056
-    second: RL_Upper_Leg
-  - first:
-      4: 400058
-    second: RL_Wheel
-  - first:
-      4: 400060
-    second: ROOT
-  - first:
-      4: 400062
-    second: RR_Fin_Mid
-  - first:
-      4: 400064
-    second: RR_Fin_Up
-  - first:
-      4: 400066
-    second: RR_Foot
-  - first:
-      4: 400068
-    second: RR_Lower_Leg
-  - first:
-      4: 400070
-    second: RR_Lower_Leg_End
-  - first:
-      4: 400072
-    second: RR_Mid_Leg
-  - first:
-      4: 400074
-    second: RR_Track_Geom
-  - first:
-      4: 400076
-    second: RR_Upper_Leg
-  - first:
-      4: 400078
-    second: RR_Wheel
-  - first:
-      4: 400080
-    second: Top
-  - first:
-      23: 2300000
-    second: FL_Wheel_Geom
-  - first:
-      23: 2300002
-    second: FR_Wheel_Geom
-  - first:
-      23: 2300004
-    second: RL_Track_Geom
-  - first:
-      23: 2300006
-    second: RR_Track_Geom
-  - first:
-      33: 3300000
-    second: FL_Wheel_Geom
-  - first:
-      33: 3300002
-    second: FR_Wheel_Geom
-  - first:
-      33: 3300004
-    second: RL_Track_Geom
-  - first:
-      33: 3300006
-    second: RR_Track_Geom
-  - first:
-      43: 4300000
-    second: Legs_Transformer_Med_Geom
-  - first:
-      43: 4300002
-    second: RL_Track_Geom
-  - first:
-      43: 4300004
-    second: FL_Wheel_Geom
-  - first:
-      43: 4300006
-    second: FR_Wheel_Geom
-  - first:
-      43: 4300008
-    second: RR_Track_Geom
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: Legs_Transformer_Med_Geom
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: FL_Foot
+    100002: FL_KneePad
+    100004: FL_Lower_Leg
+    100006: FL_Lower_Leg_End
+    100008: FL_Mid_Leg
+    100010: FL_Upper_Leg
+    100012: FL_Wheel
+    100014: FL_Wheel_Geom
+    100016: FR_Foot
+    100018: FR_KneePad
+    100020: FR_Lower_Leg
+    100022: FR_Lower_Leg_End
+    100024: FR_Mid_Leg
+    100026: FR_Upper_Leg
+    100028: FR_Wheel
+    100030: FR_Wheel_Geom
+    100032: FrontPlate
+    100034: //RootNode
+    100036: Legs_Transformer_Med_Geom
+    100038: Mount_top
+    100040: Pelvis
+    100042: RL_Fin_Mid
+    100044: RL_Fin_Up
+    100046: RL_Foot
+    100048: RL_Lower_Leg
+    100050: RL_Lower_Leg_End
+    100052: RL_Mid_Leg
+    100054: RL_Track_Geom
+    100056: RL_Upper_Leg
+    100058: RL_Wheel
+    100060: ROOT
+    100062: RR_Fin_Mid
+    100064: RR_Fin_Up
+    100066: RR_Foot
+    100068: RR_Lower_Leg
+    100070: RR_Lower_Leg_End
+    100072: RR_Mid_Leg
+    100074: RR_Track_Geom
+    100076: RR_Upper_Leg
+    100078: RR_Wheel
+    100080: Top
+    400000: FL_Foot
+    400002: FL_KneePad
+    400004: FL_Lower_Leg
+    400006: FL_Lower_Leg_End
+    400008: FL_Mid_Leg
+    400010: FL_Upper_Leg
+    400012: FL_Wheel
+    400014: FL_Wheel_Geom
+    400016: FR_Foot
+    400018: FR_KneePad
+    400020: FR_Lower_Leg
+    400022: FR_Lower_Leg_End
+    400024: FR_Mid_Leg
+    400026: FR_Upper_Leg
+    400028: FR_Wheel
+    400030: FR_Wheel_Geom
+    400032: FrontPlate
+    400034: //RootNode
+    400036: Legs_Transformer_Med_Geom
+    400038: Mount_top
+    400040: Pelvis
+    400042: RL_Fin_Mid
+    400044: RL_Fin_Up
+    400046: RL_Foot
+    400048: RL_Lower_Leg
+    400050: RL_Lower_Leg_End
+    400052: RL_Mid_Leg
+    400054: RL_Track_Geom
+    400056: RL_Upper_Leg
+    400058: RL_Wheel
+    400060: ROOT
+    400062: RR_Fin_Mid
+    400064: RR_Fin_Up
+    400066: RR_Foot
+    400068: RR_Lower_Leg
+    400070: RR_Lower_Leg_End
+    400072: RR_Mid_Leg
+    400074: RR_Track_Geom
+    400076: RR_Upper_Leg
+    400078: RR_Wheel
+    400080: Top
+    2300000: FL_Wheel_Geom
+    2300002: FR_Wheel_Geom
+    2300004: RL_Track_Geom
+    2300006: RR_Track_Geom
+    3300000: FL_Wheel_Geom
+    3300002: FR_Wheel_Geom
+    3300004: RL_Track_Geom
+    3300006: RR_Track_Geom
+    4300000: Legs_Transformer_Med_Geom
+    4300002: RL_Track_Geom
+    4300004: FL_Wheel_Geom
+    4300006: FR_Wheel_Geom
+    4300008: RR_Track_Geom
+    9500000: //RootNode
+    13700000: Legs_Transformer_Med_Geom
   externalObjects: {}
   materials:
-    materialImportMode: 0
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -313,7 +119,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -328,31 +133,21 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
-    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 0
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
   tangentSpace:
@@ -360,13 +155,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 4
     normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -376,17 +168,14 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
     rootMotionBoneName: ROOT
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

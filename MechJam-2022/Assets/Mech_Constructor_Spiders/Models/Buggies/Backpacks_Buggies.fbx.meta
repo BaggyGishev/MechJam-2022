@@ -1,215 +1,79 @@
 fileFormatVersion: 2
 guid: cc832b631768ecc4baff3508abc9323f
 ModelImporter:
-  serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: Backpack_Buggy_Heaviest
-  - first:
-      1: 100002
-    second: Backpack_Buggy_Heaviest_Geom
-  - first:
-      1: 100004
-    second: Backpack_Buggy_Hvy
-  - first:
-      1: 100006
-    second: Backpack_Buggy_Hvy_Geom
-  - first:
-      1: 100008
-    second: Backpack_Buggy_HvyMed
-  - first:
-      1: 100010
-    second: Backpack_Buggy_HvyMed_Geom
-  - first:
-      1: 100012
-    second: Backpack_Frame_Med
-  - first:
-      1: 100014
-    second: Backpack_Frame_Med_Geom
-  - first:
-      1: 100016
-    second: Backpack_Motor_Lt
-  - first:
-      1: 100018
-    second: Backpack_Motor_Lt_Geom
-  - first:
-      1: 100020
-    second: Backpack_Safari_Med
-  - first:
-      1: 100022
-    second: Backpack_Safari_Med_Buggy
-  - first:
-      1: 100024
-    second: Backpack_Safari_Med_Buggy_Geom
-  - first:
-      1: 100026
-    second: Backpack_Safari_Med_Geom
-  - first:
-      1: 100028
-    second: //RootNode
-  - first:
-      1: 100030
-    second: Mount_Antenna
-  - first:
-      1: 100032
-    second: Mount_Antenna 1
-  - first:
-      1: 100034
-    second: Mount_Antenna 2
-  - first:
-      1: 100036
-    second: Mount_Antenna 3
-  - first:
-      1: 100038
-    second: Mount_Antenna 4
-  - first:
-      1: 100040
-    second: Mount_Antenna 5
-  - first:
-      1: 100042
-    second: Mount_Wheel_Top
-  - first:
-      1: 100044
-    second: Mount_Wheel_Top 1
-  - first:
-      4: 400000
-    second: Backpack_Buggy_Heaviest
-  - first:
-      4: 400002
-    second: Backpack_Buggy_Heaviest_Geom
-  - first:
-      4: 400004
-    second: Backpack_Buggy_Hvy
-  - first:
-      4: 400006
-    second: Backpack_Buggy_Hvy_Geom
-  - first:
-      4: 400008
-    second: Backpack_Buggy_HvyMed
-  - first:
-      4: 400010
-    second: Backpack_Buggy_HvyMed_Geom
-  - first:
-      4: 400012
-    second: Backpack_Frame_Med
-  - first:
-      4: 400014
-    second: Backpack_Frame_Med_Geom
-  - first:
-      4: 400016
-    second: Backpack_Motor_Lt
-  - first:
-      4: 400018
-    second: Backpack_Motor_Lt_Geom
-  - first:
-      4: 400020
-    second: Backpack_Safari_Med
-  - first:
-      4: 400022
-    second: Backpack_Safari_Med_Buggy
-  - first:
-      4: 400024
-    second: Backpack_Safari_Med_Buggy_Geom
-  - first:
-      4: 400026
-    second: Backpack_Safari_Med_Geom
-  - first:
-      4: 400028
-    second: //RootNode
-  - first:
-      4: 400030
-    second: Mount_Antenna
-  - first:
-      4: 400032
-    second: Mount_Antenna 1
-  - first:
-      4: 400034
-    second: Mount_Antenna 2
-  - first:
-      4: 400036
-    second: Mount_Antenna 3
-  - first:
-      4: 400038
-    second: Mount_Antenna 4
-  - first:
-      4: 400040
-    second: Mount_Antenna 5
-  - first:
-      4: 400042
-    second: Mount_Wheel_Top
-  - first:
-      4: 400044
-    second: Mount_Wheel_Top 1
-  - first:
-      23: 2300000
-    second: Backpack_Buggy_Heaviest_Geom
-  - first:
-      23: 2300002
-    second: Backpack_Buggy_Hvy_Geom
-  - first:
-      23: 2300004
-    second: Backpack_Buggy_HvyMed_Geom
-  - first:
-      23: 2300006
-    second: Backpack_Frame_Med_Geom
-  - first:
-      23: 2300008
-    second: Backpack_Motor_Lt_Geom
-  - first:
-      23: 2300010
-    second: Backpack_Safari_Med_Buggy_Geom
-  - first:
-      23: 2300012
-    second: Backpack_Safari_Med_Geom
-  - first:
-      33: 3300000
-    second: Backpack_Buggy_Heaviest_Geom
-  - first:
-      33: 3300002
-    second: Backpack_Buggy_Hvy_Geom
-  - first:
-      33: 3300004
-    second: Backpack_Buggy_HvyMed_Geom
-  - first:
-      33: 3300006
-    second: Backpack_Frame_Med_Geom
-  - first:
-      33: 3300008
-    second: Backpack_Motor_Lt_Geom
-  - first:
-      33: 3300010
-    second: Backpack_Safari_Med_Buggy_Geom
-  - first:
-      33: 3300012
-    second: Backpack_Safari_Med_Geom
-  - first:
-      43: 4300000
-    second: Backpack_Buggy_Hvy_Geom
-  - first:
-      43: 4300002
-    second: Backpack_Buggy_HvyMed_Geom
-  - first:
-      43: 4300004
-    second: Backpack_Buggy_Heaviest_Geom
-  - first:
-      43: 4300006
-    second: Backpack_Frame_Med_Geom
-  - first:
-      43: 4300008
-    second: Backpack_Safari_Med_Geom
-  - first:
-      43: 4300010
-    second: Backpack_Safari_Med_Buggy_Geom
-  - first:
-      43: 4300012
-    second: Backpack_Motor_Lt_Geom
-  - first:
-      95: 9500000
-    second: //RootNode
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Backpack_Buggy_Heaviest
+    100002: Backpack_Buggy_Heaviest_Geom
+    100004: Backpack_Buggy_Hvy
+    100006: Backpack_Buggy_Hvy_Geom
+    100008: Backpack_Buggy_HvyMed
+    100010: Backpack_Buggy_HvyMed_Geom
+    100012: Backpack_Frame_Med
+    100014: Backpack_Frame_Med_Geom
+    100016: Backpack_Motor_Lt
+    100018: Backpack_Motor_Lt_Geom
+    100020: Backpack_Safari_Med
+    100022: Backpack_Safari_Med_Buggy
+    100024: Backpack_Safari_Med_Buggy_Geom
+    100026: Backpack_Safari_Med_Geom
+    100028: //RootNode
+    100030: Mount_Antenna
+    100032: Mount_Antenna 1
+    100034: Mount_Antenna 2
+    100036: Mount_Antenna 3
+    100038: Mount_Antenna 4
+    100040: Mount_Antenna 5
+    100042: Mount_Wheel_Top
+    100044: Mount_Wheel_Top 1
+    400000: Backpack_Buggy_Heaviest
+    400002: Backpack_Buggy_Heaviest_Geom
+    400004: Backpack_Buggy_Hvy
+    400006: Backpack_Buggy_Hvy_Geom
+    400008: Backpack_Buggy_HvyMed
+    400010: Backpack_Buggy_HvyMed_Geom
+    400012: Backpack_Frame_Med
+    400014: Backpack_Frame_Med_Geom
+    400016: Backpack_Motor_Lt
+    400018: Backpack_Motor_Lt_Geom
+    400020: Backpack_Safari_Med
+    400022: Backpack_Safari_Med_Buggy
+    400024: Backpack_Safari_Med_Buggy_Geom
+    400026: Backpack_Safari_Med_Geom
+    400028: //RootNode
+    400030: Mount_Antenna
+    400032: Mount_Antenna 1
+    400034: Mount_Antenna 2
+    400036: Mount_Antenna 3
+    400038: Mount_Antenna 4
+    400040: Mount_Antenna 5
+    400042: Mount_Wheel_Top
+    400044: Mount_Wheel_Top 1
+    2300000: Backpack_Buggy_Heaviest_Geom
+    2300002: Backpack_Buggy_Hvy_Geom
+    2300004: Backpack_Buggy_HvyMed_Geom
+    2300006: Backpack_Frame_Med_Geom
+    2300008: Backpack_Motor_Lt_Geom
+    2300010: Backpack_Safari_Med_Buggy_Geom
+    2300012: Backpack_Safari_Med_Geom
+    3300000: Backpack_Buggy_Heaviest_Geom
+    3300002: Backpack_Buggy_Hvy_Geom
+    3300004: Backpack_Buggy_HvyMed_Geom
+    3300006: Backpack_Frame_Med_Geom
+    3300008: Backpack_Motor_Lt_Geom
+    3300010: Backpack_Safari_Med_Buggy_Geom
+    3300012: Backpack_Safari_Med_Geom
+    4300000: Backpack_Buggy_Hvy_Geom
+    4300002: Backpack_Buggy_HvyMed_Geom
+    4300004: Backpack_Buggy_Heaviest_Geom
+    4300006: Backpack_Frame_Med_Geom
+    4300008: Backpack_Safari_Med_Geom
+    4300010: Backpack_Safari_Med_Buggy_Geom
+    4300012: Backpack_Motor_Lt_Geom
+    9500000: //RootNode
   externalObjects: {}
   materials:
-    materialImportMode: 0
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -226,7 +90,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -241,31 +104,21 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
-    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 0
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
   tangentSpace:
@@ -273,13 +126,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 4
     normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -289,17 +139,14 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
