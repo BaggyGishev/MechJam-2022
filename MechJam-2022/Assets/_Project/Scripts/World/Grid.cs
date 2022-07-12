@@ -51,8 +51,8 @@ namespace Gisha.MechJam.World
             Vector3 firstPos = GetWorldPosFromCoords(a);
             Vector3 lastPos = GetWorldPosFromCoords(b);
 
-            Debug.DrawLine(firstPos, lastPos, Color.green, 100f);
-            Debug.Log(firstPos + " " + lastPos);
+            // Debug.DrawLine(firstPos, lastPos, Color.green, 100f);
+            // Debug.Log(firstPos + " " + lastPos);
             
             return (firstPos + lastPos) / 2f;
         }

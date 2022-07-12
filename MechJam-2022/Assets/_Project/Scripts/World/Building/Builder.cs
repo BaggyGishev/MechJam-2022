@@ -11,11 +11,13 @@ namespace Gisha.MechJam.World.Building
         private void OnEnable()
         {
             StructureUIElement.OnStructureSelected += SelectStructure;
+            StructureUIElement.OnStructureDeselected += DeselectStructure;
         }
 
         private void OnDisable()
         {
             StructureUIElement.OnStructureSelected -= SelectStructure;
+            StructureUIElement.OnStructureDeselected -= DeselectStructure;
         }
 
         private void Update()
@@ -29,12 +31,15 @@ namespace Gisha.MechJam.World.Building
 
         public void SelectStructure(StructureData structureData)
         {
-            if (_structureToBuild == structureData)
-                _structureToBuild = null;
-            else
-                _structureToBuild = structureData;
+            _structureToBuild = structureData;
         }
 
+        public void DeselectStructure()
+        {
+            _structureToBuild = null;
+        }
+        
+        
         private void BuildRaycast()
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
