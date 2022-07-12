@@ -6,6 +6,8 @@ namespace Gisha.MechJam.World.Building
 {
     public class BuildHighlighter : MonoBehaviour
     {
+        [SerializeField] private Material redMaterial;
+
         private LayerMask _layerMask;
         private MeshRenderer _meshRenderer;
         private MeshFilter _meshFilter;
@@ -50,7 +52,7 @@ namespace Gisha.MechJam.World.Building
             var strMeshRenderer = structureData.Prefab.GetComponent<MeshRenderer>();
             var strMeshFilter = structureData.Prefab.GetComponent<MeshFilter>();
             transform.rotation = structureData.Prefab.transform.rotation;
-            
+
             while (true)
             {
                 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -59,7 +61,6 @@ namespace Gisha.MechJam.World.Building
                     if (hitInfo.collider != null)
                     {
                         _meshFilter.mesh = strMeshFilter.sharedMesh;
-                        _meshRenderer.materials = strMeshRenderer.sharedMaterials;
 
                         Cell[] selectedCells = WorldManager.Grid.GetCellsArea(hitInfo.point,
                             structureData.GetDimensions(WorldManager.Grid.CellSize),
@@ -74,9 +75,21 @@ namespace Gisha.MechJam.World.Building
                             continue;
                         }
 
+                        // Updating mesh renderer.
+                        if (WorldManager.Grid.CheckForBusyCell(selectedCells))
+                        {
+                            var materials = new Material[strMeshRenderer.sharedMaterials.Length];
+                            for (int i = 0; i < strMeshRenderer.sharedMaterials.Length; i++)
+                                materials[i] = redMaterial;
+
+                            _meshRenderer.materials = materials;
+                        }
+                        else
+                            _meshRenderer.materials = strMeshRenderer.sharedMaterials;
+
+                        // Placing to right position.
                         Vector3 pos = WorldManager.Grid.CenterWorldPosFromCoords(firstCell.Coords,
                             lastCell.Coords);
-
                         transform.position = pos;
                     }
                 }

@@ -53,7 +53,7 @@ namespace Gisha.MechJam.World
 
             // Debug.DrawLine(firstPos, lastPos, Color.green, 100f);
             // Debug.Log(firstPos + " " + lastPos);
-            
+
             return (firstPos + lastPos) / 2f;
         }
 
@@ -104,14 +104,23 @@ namespace Gisha.MechJam.World
         }
 
         #endregion
+
+        public bool CheckForBusyCell(Cell[] cells)
+        {
+            for (int i = 0; i < cells.Length; i++)
+                if (cells[i] == null || cells[i].IsBusy)
+                    return true;
+
+            return false;
+        }
     }
 
     public class Cell
     {
         public bool isBlockedByStructure = false, isOutOfBuildArea = true;
-        
+
         public bool IsBusy => isBlockedByStructure || isOutOfBuildArea;
-        
+
         public Vector2Int Coords { get; }
 
         public Cell(Vector2Int coords)

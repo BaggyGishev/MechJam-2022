@@ -50114,6 +50114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28768c5383c245ceb44f7cd7e7ce3a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redMaterial: {fileID: 2100000, guid: 900c77060c0379d429ea538a7bc9b311, type: 2}
 --- !u!23 &1795531721
 MeshRenderer:
   m_ObjectHideFlags: 0

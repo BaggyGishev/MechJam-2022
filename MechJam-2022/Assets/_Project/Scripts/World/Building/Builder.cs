@@ -50,7 +50,7 @@ namespace Gisha.MechJam.World.Building
                     _structureToBuild.GetDimensions(WorldManager.Grid.CellSize),
                     _structureToBuild.Prefab.transform.rotation.eulerAngles.y);
 
-                if (!CheckForBusyCell(selectedCells))
+                if (!WorldManager.Grid.CheckForBusyCell(selectedCells))
                 {
                     Cell firstCell = selectedCells[0];
                     Cell lastCell = selectedCells[selectedCells.Length - 1];
@@ -67,15 +67,6 @@ namespace Gisha.MechJam.World.Building
             var structure = Instantiate(_structureToBuild.Prefab, pos, _structureToBuild.Prefab.transform.rotation)
                 .GetComponent<Structure>();
             structure.takenArea = selectedCells;
-        }
-
-        private bool CheckForBusyCell(Cell[] cells)
-        {
-            for (int i = 0; i < cells.Length; i++)
-                if (cells[i] == null || cells[i].IsBusy)
-                    return true;
-
-            return false;
         }
     }
 }
