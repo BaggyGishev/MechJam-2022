@@ -42,7 +42,8 @@ namespace Gisha.MechJam.World.Building
             {
                 // Getting modified dimensions for structure building area. 
                 Cell[] selectedCells = WorldManager.Grid.GetCellsArea(hitInfo.point,
-                    _structureToBuild.GetDimensions(WorldManager.Grid.CellSize), 0f);
+                    _structureToBuild.GetDimensions(WorldManager.Grid.CellSize),
+                    _structureToBuild.Prefab.transform.rotation.eulerAngles.y);
 
                 if (!CheckForBusyCell(selectedCells))
                 {
@@ -58,7 +59,8 @@ namespace Gisha.MechJam.World.Building
 
         private void BuildStructure(Vector3 pos, Cell[] selectedCells)
         {
-            var structure = Instantiate(_structureToBuild.Prefab, pos, Quaternion.identity).GetComponent<Structure>();
+            var structure = Instantiate(_structureToBuild.Prefab, pos, _structureToBuild.Prefab.transform.rotation)
+                .GetComponent<Structure>();
             structure.takenArea = selectedCells;
         }
 
