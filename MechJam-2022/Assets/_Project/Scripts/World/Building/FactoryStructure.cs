@@ -17,8 +17,11 @@ namespace Gisha.MechJam.World.Building
 
         private IEnumerator MechProductionRoutine()
         {
-            yield return new WaitForSeconds(produceDelay);
-            Instantiate(mechPrefab, spawnpoint.position, Quaternion.identity);
+            while (true)
+            {
+                yield return new WaitForSeconds(produceDelay);
+                Instantiate(mechPrefab, spawnpoint.position, Quaternion.identity);
+            }
         }
     }
 }
