@@ -8,7 +8,7 @@ namespace Gisha.MechJam.World.Building
 
         public Cell[] takenArea;
 
-        private void Start()
+        protected virtual void Start()
         {
             if (takenArea == null)
                 takenArea = WorldManager.Grid.GetCellsArea(transform.position,
