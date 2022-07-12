@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5661268603168285981}
   - component: {fileID: 8736708783656790712}
   - component: {fileID: 6835321912264302194}
+  - component: {fileID: 7985293810617946912}
   - component: {fileID: -123679837229600129}
   m_Layer: 0
   m_Name: barracks
@@ -87,6 +88,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7985293810617946912
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033631716084465575}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.90300006, y: 0.22200002, z: 0.83400005}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.008, y: 0.22200002, z: 0.062000003}
+  m_TimeToStationary: 0.5
 --- !u!114 &-123679837229600129
 MonoBehaviour:
   m_ObjectHideFlags: 0

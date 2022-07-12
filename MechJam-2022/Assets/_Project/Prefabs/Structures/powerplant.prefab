@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2883962302375159513}
   - component: {fileID: 2281706505881217404}
   - component: {fileID: 4057400987825970614}
+  - component: {fileID: 1299176010540610745}
   - component: {fileID: -4497636740146958281}
   m_Layer: 0
   m_Name: powerplant
@@ -87,6 +88,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &1299176010540610745
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2544028854721199203}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3.782, y: 0.87500006, z: 2.782}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.14500001, y: 0.79800004, z: -0.08400001}
+  m_TimeToStationary: 0.5
 --- !u!114 &-4497636740146958281
 MonoBehaviour:
   m_ObjectHideFlags: 0
