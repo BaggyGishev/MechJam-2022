@@ -15,7 +15,12 @@ namespace Gisha.MechJam.World.Building
                     structureData.GetDimensions(WorldManager.Grid.CellSize), 0f);
 
             for (int i = 0; i < takenArea.Length; i++)
+            {
+                if (takenArea[i] == null)
+                    continue;
+                
                 takenArea[i].isBlockedByStructure = true;
+            }
         }
     }
 }
