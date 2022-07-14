@@ -13,7 +13,7 @@ namespace Gisha.MechJam.AI
             LayerToAttack = 1 << LayerMask.NameToLayer("Enemy");
         }
 
-        public override IEnumerator CustomAIRoutine()
+        protected override IEnumerator CustomAIRoutine()
         {
             MoveTowardsPriorityTarget();
             yield return null;

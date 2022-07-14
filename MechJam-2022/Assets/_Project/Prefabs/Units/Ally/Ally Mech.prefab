@@ -120,7 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c04be617870c904a889f40c1dee6491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSmoothness: 15
+  topMount: {fileID: 7128955861052397270}
+  bodyRotationSmoothness: 3
+  turretRotationSmoothness: 30
   attackRadius: 5
   followRadius: 10
   maxHealth: 5

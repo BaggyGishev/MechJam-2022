@@ -266,7 +266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f81ededa4924e6bbdf537418c0d7e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSmoothness: 15
+  topMount: {fileID: 7205730433235538713}
+  bodyRotationSmoothness: 3
+  turretRotationSmoothness: 30
   attackRadius: 5
   followRadius: 7
   maxHealth: 4
@@ -477,7 +479,7 @@ Transform:
   - {fileID: 7205730433235538705}
   m_Father: {fileID: 7205730433235538691}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.44159004, y: 0, z: 0}
 --- !u!1 &7205730433235832631
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +673,7 @@ Transform:
   - {fileID: 7205730433235538709}
   m_Father: {fileID: 7205730433235538691}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.2571062, y: 0, z: 0}
 --- !u!1 &7205730433235832637
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +806,10 @@ PrefabInstance:
     - target: {fileID: 400006, guid: 065d537b337e7634b8879651b07679dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 065d537b337e7634b8879651b07679dd, type: 3}
+      propertyPath: m_Controller
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 065d537b337e7634b8879651b07679dd, type: 3}

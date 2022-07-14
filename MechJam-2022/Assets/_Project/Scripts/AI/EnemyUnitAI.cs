@@ -14,7 +14,7 @@ namespace Gisha.MechJam.AI
             holdPosition = transform.position;
         }
 
-        public override IEnumerator CustomAIRoutine()
+        protected override IEnumerator CustomAIRoutine()
         {
             if (Mathf.Abs(Vector3.SqrMagnitude(holdPosition - transform.position)) < 1)
                 yield break;

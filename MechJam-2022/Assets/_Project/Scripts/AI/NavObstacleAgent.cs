@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -45,6 +46,12 @@ namespace Gisha.MechJam.AI
             }
         }
 
+        private void OnDisable()
+        {
+            _navMeshAgent.enabled = false;
+            _navMeshObstacle.enabled = false;
+        }
+        
         public void SetDestination(Vector3 position)
         {
             _navMeshObstacle.enabled = false;
@@ -54,6 +61,7 @@ namespace Gisha.MechJam.AI
 
             StartCoroutine(MoveAgentRoutine(position));
         }
+        
         private IEnumerator MoveAgentRoutine(Vector3 pos)
         {
             yield return null;

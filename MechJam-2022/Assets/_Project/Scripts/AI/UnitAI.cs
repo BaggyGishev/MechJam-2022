@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Gisha.MechJam.Core;
 using UnityEngine;
 
@@ -8,21 +7,27 @@ namespace Gisha.MechJam.AI
     [RequireComponent(typeof(NavObstacleAgent))]
     public abstract class UnitAI : MonoBehaviour, IDamageable
     {
-        [SerializeField] private float rotationSmoothness;
-        [SerializeField] private float attackRadius;
-        [SerializeField] private float followRadius;
-        [Space] [SerializeField] private float maxHealth;
-        [SerializeField] private float attackDelay;
+        [Header("General")] [SerializeField] private Transform topMount;
+        [Header("Rotation")] [SerializeField] private float bodyRotationSmoothness = 3f;
+        [SerializeField] private float turretRotationSmoothness = 3f;
+        [Header("Other")] [SerializeField] private float attackRadius = 5f;
+        [SerializeField] private float followRadius = 10f;
+        [Space] [SerializeField] private float maxHealth = 5f;
+        [SerializeField] private float attackDelay = 1f;
 
         private Transform AttackTarget { get; set; }
         protected LayerMask LayerToAttack { get; set; }
 
         private NavObstacleAgent _agent;
+        private UnitAnimationController _animationController;
+        
         private float _health;
-
+        private bool _isDestroyed;
+        
         public virtual void Awake()
         {
             _agent = GetComponent<NavObstacleAgent>();
+            _animationController = new UnitAnimationController(GetComponent<Animator>());
         }
 
         public virtual void Start()
@@ -31,11 +36,29 @@ namespace Gisha.MechJam.AI
             StartCoroutine(AIRoutine());
         }
 
-        public abstract IEnumerator CustomAIRoutine();
+        private void LateUpdate()
+        {
+            if (_isDestroyed)
+                return;
+            
+            if (_agent.Velocity != Vector3.zero)
+            {
+                UpdateBodyRotation();
+                _animationController.StartMovementAnimation(false);
+            }
+            else
+                _animationController.StartMovementAnimation(true);
+
+            UpdateTurretRotation();
+        }
+
+        #region AI
+
+        protected abstract IEnumerator CustomAIRoutine();
 
         private IEnumerator AIRoutine()
         {
-            while (true)
+            while (!_isDestroyed)
             {
                 if (AttackTarget == null)
                 {
@@ -54,7 +77,10 @@ namespace Gisha.MechJam.AI
                             yield return new WaitForSeconds(attackDelay);
 
                             if (AttackTarget != null)
-                                AttackTarget.GetComponent<IDamageable>().GetDamage(1);
+                            {
+                                if (AttackTarget.TryGetComponent(out IDamageable damageable))
+                                    damageable.GetDamage(1);
+                            }
                         }
                     }
                 }
@@ -63,10 +89,7 @@ namespace Gisha.MechJam.AI
             }
         }
 
-        private void LateUpdate()
-        {
-            UpdateRotation();
-        }
+        #endregion
 
         protected void SetDestination(Vector3 pos)
         {
@@ -84,13 +107,22 @@ namespace Gisha.MechJam.AI
             return result;
         }
 
-        private void UpdateRotation()
+        private void UpdateBodyRotation()
         {
-            if (_agent.Velocity == Vector3.zero || AttackTarget == null)
+            var rotation = Quaternion.LookRotation(_agent.Velocity.normalized);
+            transform.rotation =
+                Quaternion.Slerp(transform.rotation, rotation, bodyRotationSmoothness * Time.deltaTime);
+        }
+
+        private void UpdateTurretRotation()
+        {
+            if (AttackTarget == null)
                 return;
 
-            var rotation = Quaternion.LookRotation(_agent.Velocity.normalized);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSmoothness * Time.deltaTime);
+            var direction = (AttackTarget.position - transform.position).normalized;
+            var rotation = Quaternion.LookRotation(direction);
+            topMount.rotation =
+                Quaternion.Slerp(topMount.rotation, rotation, turretRotationSmoothness * Time.deltaTime);
         }
 
 
@@ -98,9 +130,18 @@ namespace Gisha.MechJam.AI
         {
             _health -= damage;
 
-            if (_health <= 0)
-                Destroy(gameObject);
+            if (_health <= 0) 
+                Die();
         }
+
+        private void Die()
+        {
+            _animationController.StartDeathAnimation();
+            Destroy(gameObject, 1.25f);
+            _agent.enabled = false;
+            enabled = false;
+        }
+
 
         private void OnDrawGizmos()
         {
@@ -109,6 +150,26 @@ namespace Gisha.MechJam.AI
 
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, followRadius);
+        }
+    }
+
+    public class UnitAnimationController
+    {
+        private Animator _animator;
+
+        public UnitAnimationController(Animator animator)
+        {
+            _animator = animator;
+        }
+
+        public void StartMovementAnimation(bool isIdle)
+        {
+            _animator.SetBool("IsIdle", isIdle);
+        }
+
+        public void StartDeathAnimation()
+        {
+            _animator.SetTrigger("Die");
         }
     }
 }
