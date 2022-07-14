@@ -268,7 +268,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSmoothness: 15
   attackRadius: 5
-  followRadius: 10
+  followRadius: 7
+  maxHealth: 4
+  attackDelay: 1
 --- !u!65 &3760335543556298427
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Gisha.MechJam.Core;
 using UnityEngine;
 
@@ -10,38 +11,55 @@ namespace Gisha.MechJam.AI
         [SerializeField] private float rotationSmoothness;
         [SerializeField] private float attackRadius;
         [SerializeField] private float followRadius;
+        [Space] [SerializeField] private float maxHealth;
+        [SerializeField] private float attackDelay;
 
         private Transform AttackTarget { get; set; }
         protected LayerMask LayerToAttack { get; set; }
-        protected Action TargetDestroyed;
 
         private NavObstacleAgent _agent;
+        private float _health;
 
-        private void Awake()
+        public virtual void Awake()
         {
             _agent = GetComponent<NavObstacleAgent>();
         }
 
-        private void Update()
+        public virtual void Start()
         {
-            if (AttackTarget == null)
-            {
-                AttackTarget = CheckAreaForTarget();
-                return;
-            }
+            _health = maxHealth;
+            StartCoroutine(AIRoutine());
+        }
 
-            if (Vector3.Distance(AttackTarget.transform.position, transform.position) < followRadius)
-            {
-                SetDestination(AttackTarget.position);
+        public abstract IEnumerator CustomAIRoutine();
 
-                if (Vector3.Distance(AttackTarget.transform.position, transform.position) < attackRadius)
+        private IEnumerator AIRoutine()
+        {
+            while (true)
+            {
+                if (AttackTarget == null)
                 {
-                    // Stop and Attack Target.
-                    AttackTarget.GetComponent<IDamageable>().GetDamage(1);
-
-                    if (AttackTarget == null)
-                        TargetDestroyed?.Invoke();
+                    AttackTarget = CheckAreaForTarget();
+                    yield return CustomAIRoutine();
                 }
+                else
+                {
+                    if (Vector3.Distance(AttackTarget.transform.position, transform.position) < followRadius)
+                    {
+                        SetDestination(AttackTarget.position);
+
+                        if (Vector3.Distance(AttackTarget.transform.position, transform.position) < attackRadius)
+                        {
+                            // Stop and Attack Target.
+                            yield return new WaitForSeconds(attackDelay);
+
+                            if (AttackTarget != null)
+                                AttackTarget.GetComponent<IDamageable>().GetDamage(1);
+                        }
+                    }
+                }
+
+                yield return null;
             }
         }
 
@@ -63,9 +81,6 @@ namespace Gisha.MechJam.AI
             if (colls.Length > 0)
                 result = colls[0].transform;
 
-            if (result != null)
-                Debug.Log("Target acquired!");
-
             return result;
         }
 
@@ -81,8 +96,10 @@ namespace Gisha.MechJam.AI
 
         public void GetDamage(float damage)
         {
-            Debug.Log("Damaged! " + gameObject.name);
-            Destroy(gameObject);
+            _health -= damage;
+
+            if (_health <= 0)
+                Destroy(gameObject);
         }
 
         private void OnDrawGizmos()

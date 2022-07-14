@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Gisha.MechJam.AI
@@ -7,30 +7,24 @@ namespace Gisha.MechJam.AI
     {
         private Transform _priorityTarget { get; set; } // Base or outpost.
 
-        private void OnEnable()
+        public override void Start()
         {
-            TargetDestroyed += MoveTowardsPriorityTarget;
-        }
-
-        private void OnDisable()
-        {
-            TargetDestroyed -= MoveTowardsPriorityTarget;
-        }
-
-        private void Start()
-        {
+            base.Start();
             LayerToAttack = 1 << LayerMask.NameToLayer("Enemy");
+        }
 
-            // Searching for nearest enemy base or outpost.
-            _priorityTarget = FindNearestPriorityTarget();
+        public override IEnumerator CustomAIRoutine()
+        {
             MoveTowardsPriorityTarget();
+            yield return null;
         }
 
         private void MoveTowardsPriorityTarget()
         {
+            _priorityTarget = FindNearestPriorityTarget();
             SetDestination(_priorityTarget.position);
         }
-
+        
         private Transform FindNearestPriorityTarget()
         {
             float minDist = Mathf.Infinity;
