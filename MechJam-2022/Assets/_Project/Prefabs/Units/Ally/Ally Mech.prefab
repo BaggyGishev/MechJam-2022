@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topMount: {fileID: 7128955861052397270}
-  bodyRotationSmoothness: 3
-  turretRotationSmoothness: 30
+  bodyRotationSmoothness: 15
+  turretRotationSmoothness: 45
   attackRadius: 5
   followRadius: 10
   maxHealth: 5

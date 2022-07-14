@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Linq;
+using Gisha.MechJam.World.Targets;
 using UnityEngine;
 
 namespace Gisha.MechJam.AI
@@ -24,11 +26,15 @@ namespace Gisha.MechJam.AI
             _priorityTarget = FindNearestPriorityTarget();
             SetDestination(_priorityTarget.position);
         }
-        
+
+        // Find nearest not captured target. (outpost, base)
         private Transform FindNearestPriorityTarget()
         {
             float minDist = Mathf.Infinity;
-            var targets = GameObject.FindGameObjectsWithTag("Target");
+            var targets = FindObjectsOfType<Target>()
+                .Where(x => !x.IsCaptured)
+                .ToArray();
+            
             Transform result = targets[0].transform;
 
             for (int i = 0; i < targets.Length; i++)

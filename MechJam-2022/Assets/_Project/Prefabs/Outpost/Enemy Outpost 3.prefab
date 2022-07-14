@@ -54,6 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5480121086910707813}
+  - component: {fileID: 267346703790088665}
   m_Layer: 7
   m_Name: Enemy Outpost 3
   m_TagString: Target
@@ -83,6 +84,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &267346703790088665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5480121086910707812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1337c0fdc4fe4e429f94898fdaf1c049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captureRadius: 4.5
+  captureSpeed: 1
+  buildingTrans: {fileID: 4724391867451822383}
+  placeholderMaterial: {fileID: 2100000, guid: f224b1491e914e94bb593625462af249, type: 2}
+  capturedMaterial: {fileID: 2100000, guid: 4dab739c2e29013498cb00d881fd888b, type: 2}
 --- !u!1001 &36939887336183566
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -143,7 +143,7 @@ namespace Gisha.MechJam.AI
         }
 
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, attackRadius);
