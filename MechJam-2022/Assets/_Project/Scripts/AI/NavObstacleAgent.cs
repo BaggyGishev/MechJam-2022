@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Gisha.MechJam.Core
+namespace Gisha.MechJam.AI
 {
     [RequireComponent(typeof(NavMeshAgent), typeof(NavMeshObstacle))]
     public class NavObstacleAgent : MonoBehaviour
@@ -11,7 +11,7 @@ namespace Gisha.MechJam.Core
         [SerializeField] private float carvingMoveThreshold = 0.1f;
 
         public Vector3 Velocity => _navMeshAgent.velocity;
-        
+
         private NavMeshAgent _navMeshAgent;
         private NavMeshObstacle _navMeshObstacle;
 
@@ -23,7 +23,7 @@ namespace Gisha.MechJam.Core
             _navMeshObstacle = GetComponent<NavMeshObstacle>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _navMeshAgent.updateRotation = false;
-            
+
             _navMeshObstacle.enabled = false;
             _navMeshObstacle.carveOnlyStationary = false;
             _navMeshObstacle.carving = true;
@@ -54,8 +54,6 @@ namespace Gisha.MechJam.Core
 
             StartCoroutine(MoveAgentRoutine(position));
         }
-
-
         private IEnumerator MoveAgentRoutine(Vector3 pos)
         {
             yield return null;
