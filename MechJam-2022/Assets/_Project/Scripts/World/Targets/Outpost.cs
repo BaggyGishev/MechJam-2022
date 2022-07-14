@@ -11,7 +11,6 @@ namespace Gisha.MechJam.World.Targets
 
         public override void FinishCapture()
         {
-            Debug.Log("Captured");
             SwitchMaterials();
         }
 

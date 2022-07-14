@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Gisha.MechJam.Core;
 using UnityEngine;
 
 namespace Gisha.MechJam.World.Building
@@ -20,7 +21,9 @@ namespace Gisha.MechJam.World.Building
             while (true)
             {
                 yield return new WaitForSeconds(produceDelay);
-                Instantiate(mechPrefab, spawnpoint.position, Quaternion.identity);
+
+                if (GameManager.Instance.IsSustainableAmountOfAllyUnits)
+                    Instantiate(mechPrefab, spawnpoint.position, Quaternion.identity);
             }
         }
     }
