@@ -8,7 +8,9 @@ namespace Gisha.MechJam.World.Building.Structures
     {
         [SerializeField] private GameObject mechPrefab;
         [SerializeField] private Transform spawnpoint;
-        [SerializeField] private float produceDelay;
+        [Space] [SerializeField] private float produceDelay;
+        [SerializeField] private int steelPerMech = 10;
+
 
         protected override void Start()
         {
@@ -22,8 +24,12 @@ namespace Gisha.MechJam.World.Building.Structures
             {
                 yield return new WaitForSeconds(produceDelay);
 
-                if (GameManager.Instance.IsSustainableAmountOfAllyUnits)
+                if (GameManager.Instance.IsSustainableAmountOfAllyUnits &&
+                    GameManager.Instance.SteelCount >= steelPerMech)
+                {
                     Instantiate(mechPrefab, spawnpoint.position, Quaternion.identity);
+                    GameManager.Instance.AddSteelCount(-steelPerMech);
+                }
             }
         }
     }

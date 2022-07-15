@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8386965862184409303}
   - component: {fileID: 8386965862177289687}
   - component: {fileID: 4119459867335447086}
-  - component: {fileID: 1810480158236959015}
+  - component: {fileID: 6389081671173649848}
   m_Layer: 0
   m_Name: mine
   m_TagString: Untagged
@@ -124,7 +124,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.003, y: 0.82400006, z: -0.016}
   m_TimeToStationary: 0.5
---- !u!114 &1810480158236959015
+--- !u!114 &6389081671173649848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8386965862186665495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1174c647f75f4d52816ea612671dcbbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 535e8377fb5944ab86c2a6d07134d326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: 4f619e9b8ac69d349a83d6ba61cafdc6, type: 2}
+  produceDelayInSeconds: 4
+  countPerIteration: 5

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7338934077710871126}
   - component: {fileID: 64469719166461795}
   - component: {fileID: 6949766954251412048}
-  - component: {fileID: -2258056728760188575}
+  - component: {fileID: -5514276378565159379}
   m_Layer: 0
   m_Name: Factory
   m_TagString: Untagged
@@ -118,7 +118,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.055000003, y: 0.77400005, z: 0.019000001}
   m_TimeToStationary: 0.5
---- !u!114 &-2258056728760188575
+--- !u!114 &-5514276378565159379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,13 +127,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2010284035925870262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 535e8377fb5944ab86c2a6d07134d326, type: 3}
+  m_Script: {fileID: 11500000, guid: 26c613ce2e644c0c9da9e0fcb3e6cab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   structureData: {fileID: 11400000, guid: 7fb20c289085a294a85709c1998ba2d9, type: 2}
   mechPrefab: {fileID: 7128955861051902696, guid: 4514a2d7d9dccb34baeb6dd4b361e8bd, type: 3}
   spawnpoint: {fileID: 4194119004355416906}
-  produceDelay: 7
+  produceDelay: 5
+  steelPerMech: 20
 --- !u!1 &8380560960845398705
 GameObject:
   m_ObjectHideFlags: 0
