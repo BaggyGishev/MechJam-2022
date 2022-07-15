@@ -1,7 +1,7 @@
 ﻿using Gisha.MechJam.Core;
 using UnityEngine;
 
-namespace Gisha.MechJam.World.Building
+namespace Gisha.MechJam.World.Building.Structures
 {
     public class BarracksStructure : Structure
     {

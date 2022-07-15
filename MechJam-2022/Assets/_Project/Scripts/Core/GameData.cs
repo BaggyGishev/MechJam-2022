@@ -1,4 +1,5 @@
-﻿using Gisha.MechJam.World.Building;
+﻿using Gisha.MechJam.World.Building.Structures;
+using Gisha.MechJam.World.Building;
 using UnityEngine;
 
 namespace Gisha.MechJam.Core
