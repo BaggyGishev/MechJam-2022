@@ -1,4 +1,5 @@
-﻿using Gisha.MechJam.Core;
+﻿using System;
+using Gisha.MechJam.Core;
 using UnityEngine;
 
 namespace Gisha.MechJam.World.Building.Structures
@@ -7,6 +8,8 @@ namespace Gisha.MechJam.World.Building.Structures
     {
         [SerializeField] private int allyExtension = 3;
 
+        public static Action BarracksBuilt;
+        
         protected override void Start()
         {
             base.Start();
@@ -15,6 +18,8 @@ namespace Gisha.MechJam.World.Building.Structures
             GameManager.Instance.UpdateAllyUnits(barracks.Length * allyExtension);
 
             Debug.Log($"Current barracks capacity: {GameManager.Instance.MaxAllyUnits}");
+
+            BarracksBuilt?.Invoke();
         }
     }
 }

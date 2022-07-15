@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using Gisha.MechJam.World.Targets;
@@ -9,6 +10,8 @@ namespace Gisha.MechJam.AI
     {
         private Transform _priorityTarget { get; set; } // Base or outpost.
 
+        public static Action AllyUnitDestroyed;
+        
         public override void Start()
         {
             base.Start();
@@ -19,6 +22,12 @@ namespace Gisha.MechJam.AI
         {
             MoveTowardsPriorityTarget();
             yield return null;
+        }
+
+        protected override void Die()
+        {
+            base.Die();
+            AllyUnitDestroyed?.Invoke();
         }
 
         private void MoveTowardsPriorityTarget()

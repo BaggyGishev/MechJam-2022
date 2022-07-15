@@ -9,8 +9,10 @@ namespace Gisha.MechJam.Core
 
         private int _maxAllyUnits;
         private int _steelCount;
-        public bool IsSustainableAmountOfAllyUnits => FindObjectsOfType<AllyUnitAI>().Length <= MaxAllyUnits;
+        public bool IsSustainableAmountOfAllyUnits => CurrentAllyUnits <= MaxAllyUnits;
         public int MaxAllyUnits => _maxAllyUnits;
+        public int CurrentAllyUnits => FindObjectsOfType<AllyUnitAI>().Length;
+        
         public int SteelCount => _steelCount;
         
 

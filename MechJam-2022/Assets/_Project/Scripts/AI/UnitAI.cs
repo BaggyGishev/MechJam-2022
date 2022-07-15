@@ -134,7 +134,7 @@ namespace Gisha.MechJam.AI
                 Die();
         }
 
-        private void Die()
+        protected virtual void Die()
         {
             _animationController.StartDeathAnimation();
             Destroy(gameObject, 1.25f);

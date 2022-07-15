@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Gisha.MechJam.Core;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Gisha.MechJam.World.Building.Structures
         [Space] [SerializeField] private float produceDelay;
         [SerializeField] private int steelPerMech = 10;
 
+        public static Action MechProduced;
 
         protected override void Start()
         {
@@ -29,6 +31,7 @@ namespace Gisha.MechJam.World.Building.Structures
                 {
                     Instantiate(mechPrefab, spawnpoint.position, Quaternion.identity);
                     GameManager.Instance.AddSteelCount(-steelPerMech);
+                    MechProduced?.Invoke();
                 }
             }
         }
