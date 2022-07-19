@@ -5,8 +5,9 @@ namespace Gisha.MechJam.World.Building
     [RequireComponent(typeof(LineRenderer))]
     public class BuildArea : Area
     {
-        public void Start()
+        public override void Start()
         {
+            base.Start();
             var dimensions = GetDimensions(GridManager.Grid.CellSize);
             var selectedCells = GridManager.Grid.GetCellsArea(transform.position, dimensions, 0f);
 

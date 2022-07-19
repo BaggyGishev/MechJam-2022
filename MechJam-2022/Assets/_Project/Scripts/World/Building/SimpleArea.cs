@@ -4,8 +4,9 @@ namespace Gisha.MechJam.World.Building
 {
     public class SimpleArea : Area
     {
-        public void Start()
+        public override void Start()
         {
+            base.Start();
             RenderOutline();
         }
 
