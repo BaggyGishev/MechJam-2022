@@ -19,6 +19,9 @@ namespace Gisha.MechJam.Core
 
         private void Update()
         {
+            if (GameManager.InteractionMode != InteractionMode.Command)
+                return;
+
             if (Input.GetMouseButtonDown(0))
                 CommandRaycast();
         }

@@ -1,4 +1,5 @@
-﻿using Gisha.MechJam.AI;
+﻿using System;
+using Gisha.MechJam.AI;
 using UnityEngine;
 
 namespace Gisha.MechJam.Core
@@ -21,7 +22,8 @@ namespace Gisha.MechJam.Core
         public int CurrentAllyUnits => FindObjectsOfType<AllyUnitAI>().Length;
         public int SteelCount => _steelCount;
 
-        public InteractionMode InteractionMode { get; private set; }
+        public static InteractionMode InteractionMode { get; private set; }
+        public static Action<InteractionMode> InteractionModeChanged;
 
         private void Awake()
         {
@@ -32,6 +34,7 @@ namespace Gisha.MechJam.Core
         public void ChangeInteractionMode(InteractionMode modeToChange)
         {
             InteractionMode = modeToChange;
+            InteractionModeChanged?.Invoke(InteractionMode);
         }
 
         public void UpdateAllyUnits(int count)

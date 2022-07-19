@@ -1,4 +1,5 @@
 using System;
+using Gisha.MechJam.Core;
 using Gisha.MechJam.UI;
 using UnityEngine;
 
@@ -30,6 +31,9 @@ namespace Gisha.MechJam.World.Building
 
         private void Update()
         {
+            if (GameManager.InteractionMode != InteractionMode.Build)
+                return;
+
             if (_structureToBuild == null)
                 return;
 

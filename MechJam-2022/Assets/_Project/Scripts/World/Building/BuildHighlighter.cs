@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Gisha.MechJam.Core;
 using Gisha.MechJam.UI;
 using UnityEngine;
 
@@ -27,12 +28,14 @@ namespace Gisha.MechJam.World.Building
         {
             StructureUIElement.OnStructureSelected += EnableHighlight;
             StructureUIElement.OnStructureDeselected += DisableHighligt;
+            GameManager.InteractionModeChanged += mode => DisableHighligt();
         }
 
         private void OnDisable()
         {
             StructureUIElement.OnStructureSelected -= EnableHighlight;
             StructureUIElement.OnStructureDeselected -= DisableHighligt;
+            GameManager.InteractionModeChanged -= mode => DisableHighligt();
         }
 
         private void EnableHighlight(StructureData structureData)
