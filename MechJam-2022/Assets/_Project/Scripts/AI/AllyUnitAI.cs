@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Gisha.MechJam.Core;
 using Gisha.MechJam.World.Targets;
 using UnityEngine;
 
@@ -11,11 +12,27 @@ namespace Gisha.MechJam.AI
         private Transform _priorityTarget { get; set; } // Base or outpost.
 
         public static Action AllyUnitDestroyed;
-        
+
         public override void Start()
         {
             base.Start();
             LayerToAttack = 1 << LayerMask.NameToLayer("Enemy");
+        }
+
+        private void OnEnable()
+        {
+            CommandManager.CommandSent += OnCommandSent;
+        }
+
+        private void OnDisable()
+        {
+            CommandManager.CommandSent -= OnCommandSent;
+        }
+
+        private void OnCommandSent(Command cmd)
+        {
+            var attackCommand = (AttackCommand) cmd;
+            _priorityTarget = attackCommand.Target;
         }
 
         protected override IEnumerator CustomAIRoutine()
@@ -32,7 +49,14 @@ namespace Gisha.MechJam.AI
 
         private void MoveTowardsPriorityTarget()
         {
-            _priorityTarget = FindNearestPriorityTarget();
+            if (CommandManager.CurrentCommand != null)
+            {
+                var attackCmd = (AttackCommand) CommandManager.CurrentCommand;
+                _priorityTarget = attackCmd.Target;
+            }
+            else
+                _priorityTarget = FindNearestPriorityTarget();
+
             SetDestination(_priorityTarget.position);
         }
 
@@ -43,7 +67,7 @@ namespace Gisha.MechJam.AI
             var targets = FindObjectsOfType<Target>()
                 .Where(x => !x.IsCaptured)
                 .ToArray();
-            
+
             Transform result = targets[0].transform;
 
             for (int i = 0; i < targets.Length; i++)

@@ -21909,6 +21909,7 @@ GameObject:
   m_Component:
   - component: {fileID: 727052149}
   - component: {fileID: 727052148}
+  - component: {fileID: 727052150}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -21942,6 +21943,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &727052150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727052147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1a829ab2a243d59dd30e5dca8de0d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &727397704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48582,7 +48595,7 @@ GameObject:
   - component: {fileID: 1582772328}
   m_Layer: 0
   m_Name: XRAY Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58952,6 +58965,7 @@ GameObject:
   - component: {fileID: 1902525302}
   - component: {fileID: 1902525303}
   - component: {fileID: 1902525304}
+  - component: {fileID: 1902525305}
   m_Layer: 10
   m_Name: Build Area
   m_TagString: Untagged
@@ -58989,6 +59003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topPoint: {fileID: 1194079103}
   bottomPoint: {fileID: 1290960778}
+  isAlly: 1
 --- !u!120 &1902525304
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -59089,6 +59104,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!65 &1902525305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902525301}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: -38, y: 1, z: 42}
 --- !u!1001 &1903591733
 PrefabInstance:
   m_ObjectHideFlags: 0

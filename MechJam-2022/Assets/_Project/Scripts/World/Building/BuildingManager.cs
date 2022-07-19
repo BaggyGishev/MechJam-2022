@@ -1,3 +1,4 @@
+using System;
 using Gisha.MechJam.UI;
 using UnityEngine;
 
@@ -6,8 +7,14 @@ namespace Gisha.MechJam.World.Building
     public class BuildingManager : MonoBehaviour
     {
         [SerializeField] private Transform structuresParent;
-        
+
         private StructureData _structureToBuild;
+        private LayerMask _groundLayerMask;
+
+        private void Awake()
+        {
+            _groundLayerMask = 1 << LayerMask.NameToLayer("Ground");
+        }
 
         private void OnEnable()
         {
@@ -39,11 +46,11 @@ namespace Gisha.MechJam.World.Building
         {
             _structureToBuild = null;
         }
-        
+
         private void BuildRaycast()
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out var hitInfo))
+            if (Physics.Raycast(ray, out var hitInfo, 100f, _groundLayerMask))
             {
                 // Getting modified dimensions for structure building area. 
                 Cell[] selectedCells = GridManager.Grid.GetCellsArea(hitInfo.point,

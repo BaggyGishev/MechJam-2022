@@ -6,9 +6,13 @@ namespace Gisha.MechJam.World.Building
     public class Area : MonoBehaviour
     {
         [SerializeField] protected Transform topPoint, bottomPoint;
+        [SerializeField] private bool isAlly;
+
+        public bool IsAlly => isAlly;
 
         protected LineRenderer _outline;
         private BoxCollider _collider;
+
 
         private void Awake()
         {
@@ -19,7 +23,7 @@ namespace Gisha.MechJam.World.Building
         public virtual void Start()
         {
             _collider.isTrigger = true;
-            
+
             Vector3 center = Vector3.zero;
 
             float xSize = Mathf.Abs(topPoint.localPosition.x) + Mathf.Abs(bottomPoint.localPosition.x);
