@@ -62,8 +62,8 @@ namespace Gisha.MechJam.World.Building
                     {
                         _meshFilter.mesh = strMeshFilter.sharedMesh;
 
-                        Cell[] selectedCells = WorldManager.Grid.GetCellsArea(hitInfo.point,
-                            structureData.GetDimensions(WorldManager.Grid.CellSize),
+                        var selectedCells = GridManager.Grid.GetCellsArea(hitInfo.point,
+                            structureData.GetDimensions(GridManager.Grid.CellSize),
                             structureData.Prefab.transform.rotation.eulerAngles.y);
 
                         Cell firstCell = selectedCells[0];
@@ -76,7 +76,7 @@ namespace Gisha.MechJam.World.Building
                         }
 
                         // Updating mesh renderer.
-                        if (WorldManager.Grid.CheckForBusyCell(selectedCells))
+                        if (GridManager.Grid.CheckForBusyCell(selectedCells))
                         {
                             var materials = new Material[strMeshRenderer.sharedMaterials.Length];
                             for (int i = 0; i < strMeshRenderer.sharedMaterials.Length; i++)
@@ -88,7 +88,7 @@ namespace Gisha.MechJam.World.Building
                             _meshRenderer.materials = strMeshRenderer.sharedMaterials;
 
                         // Placing to right position.
-                        Vector3 pos = WorldManager.Grid.CenterWorldPosFromCoords(firstCell.Coords,
+                        Vector3 pos = GridManager.Grid.CenterWorldPosFromCoords(firstCell.Coords,
                             lastCell.Coords);
                         transform.position = pos;
                     }

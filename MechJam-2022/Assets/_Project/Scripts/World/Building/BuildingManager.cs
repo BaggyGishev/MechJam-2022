@@ -46,15 +46,15 @@ namespace Gisha.MechJam.World.Building
             if (Physics.Raycast(ray, out var hitInfo))
             {
                 // Getting modified dimensions for structure building area. 
-                Cell[] selectedCells = WorldManager.Grid.GetCellsArea(hitInfo.point,
-                    _structureToBuild.GetDimensions(WorldManager.Grid.CellSize),
+                Cell[] selectedCells = GridManager.Grid.GetCellsArea(hitInfo.point,
+                    _structureToBuild.GetDimensions(GridManager.Grid.CellSize),
                     _structureToBuild.Prefab.transform.rotation.eulerAngles.y);
 
-                if (!WorldManager.Grid.CheckForBusyCell(selectedCells))
+                if (!GridManager.Grid.CheckForBusyCell(selectedCells))
                 {
                     Cell firstCell = selectedCells[0];
                     Cell lastCell = selectedCells[selectedCells.Length - 1];
-                    Vector3 pos = WorldManager.Grid.CenterWorldPosFromCoords(firstCell.Coords,
+                    Vector3 pos = GridManager.Grid.CenterWorldPosFromCoords(firstCell.Coords,
                         lastCell.Coords);
 
                     BuildStructure(pos, selectedCells);

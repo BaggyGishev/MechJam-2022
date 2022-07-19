@@ -31,8 +31,8 @@ namespace Gisha.MechJam.Core
             _height = transform.position.y;
             _heightStep = (maxHeight - minHeight) / heightStepsCount;
 
-            _top = WorldManager.Grid.GetWorldPosFromCoords(WorldManager.Grid.LastCell.Coords);
-            _bottom = WorldManager.Grid.GetWorldPosFromCoords(WorldManager.Grid.FirstCell.Coords);
+            _top = GridManager.Grid.GetWorldPosFromCoords(GridManager.Grid.LastCell.Coords);
+            _bottom = GridManager.Grid.GetWorldPosFromCoords(GridManager.Grid.FirstCell.Coords);
         }
 
         private void Update()

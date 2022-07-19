@@ -2,7 +2,7 @@
 
 namespace Gisha.MechJam.World
 {
-    public class WorldManager : MonoBehaviour
+    public class GridManager : MonoBehaviour
     {
         [SerializeField] private int width, height;
         [SerializeField] private float cellSize;

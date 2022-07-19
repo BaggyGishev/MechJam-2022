@@ -11,8 +11,8 @@ namespace Gisha.MechJam.World.Building
         protected virtual void Start()
         {
             if (takenArea == null)
-                takenArea = WorldManager.Grid.GetCellsArea(transform.position,
-                    structureData.GetDimensions(WorldManager.Grid.CellSize), 0f);
+                takenArea = GridManager.Grid.GetCellsArea(transform.position,
+                    structureData.GetDimensions(GridManager.Grid.CellSize), 0f);
 
             for (int i = 0; i < takenArea.Length; i++)
             {

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gisha.MechJam.World
@@ -80,8 +82,7 @@ namespace Gisha.MechJam.World
                 : Mathf.CeilToInt(inputCoords.y - offset.y);
             Vector2Int startCoords = new Vector2Int(xCoord, zCoord);
 
-            Cell[] result = new Cell[newXSize * newZSize];
-
+            var result = new Cell[newXSize * newZSize];
             for (int aZ = 0; aZ < newZSize; aZ++)
             for (int aX = 0; aX < newXSize; aX++)
             {
@@ -94,7 +95,7 @@ namespace Gisha.MechJam.World
 
             return result;
         }
-
+        
         private Vector2 GetOffsetCoords(int xSize, int zSize)
         {
             float xOffset = xSize % 2 == 0 ? xSize / 2f - 0.5f : Mathf.Ceil(xSize / 2f);
