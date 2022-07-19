@@ -47,6 +47,7 @@ namespace Gisha.MechJam.World.Targets
                 if (_captureProgress >= 1f)
                 {
                     FinishCapture();
+                    GetComponentInChildren<Area>().Capture();
                     _isCaptured = true;
                 }
 

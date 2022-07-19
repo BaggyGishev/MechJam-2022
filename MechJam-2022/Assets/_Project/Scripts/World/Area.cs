@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 
-namespace Gisha.MechJam.World.Building
+namespace Gisha.MechJam.World
 {
     [RequireComponent(typeof(BoxCollider))]
     public class Area : MonoBehaviour
     {
         [SerializeField] protected Transform topPoint, bottomPoint;
         [SerializeField] private bool isAlly;
+        [SerializeField] private Color captureColor;
 
         public bool IsAlly => isAlly;
 
         protected LineRenderer _outline;
         private BoxCollider _collider;
-
-
+        
         private void Awake()
         {
             _collider = GetComponent<BoxCollider>();
@@ -32,6 +32,12 @@ namespace Gisha.MechJam.World.Building
 
             _collider.size = new Vector3(xSize, ySize, zSize);
             _collider.center = center;
+        }
+
+        public void Capture()
+        {
+            _outline.startColor = captureColor;
+            _outline.endColor = captureColor;
         }
     }
 }

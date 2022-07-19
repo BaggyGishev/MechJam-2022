@@ -209,6 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topPoint: {fileID: 3348242907074529932}
   bottomPoint: {fileID: 6347622535610301496}
+  isAlly: 0
+  captureColor: {r: 0.16244212, g: 0.735849, b: 0.30860463, a: 0.78431374}
 --- !u!65 &986362931206033032
 BoxCollider:
   m_ObjectHideFlags: 0

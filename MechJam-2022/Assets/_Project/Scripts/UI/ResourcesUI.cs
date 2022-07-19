@@ -1,7 +1,7 @@
 ﻿using System;
+using Gisha.MechJam.World.Building.Structures;
 using Gisha.MechJam.AI;
 using Gisha.MechJam.Core;
-using Gisha.MechJam.World.Building.Structures;
 using TMPro;
 using UnityEngine;
 
