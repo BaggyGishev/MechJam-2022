@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace Gisha.MechJam.World.Building
 {
-    [RequireComponent(typeof(WorldManager))]
-    public class Builder : MonoBehaviour
+    public class BuildingManager : MonoBehaviour
     {
+        [SerializeField] private Transform structuresParent;
+        
         private StructureData _structureToBuild;
 
         private void OnEnable()
@@ -39,7 +40,6 @@ namespace Gisha.MechJam.World.Building
             _structureToBuild = null;
         }
         
-        
         private void BuildRaycast()
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -67,6 +67,7 @@ namespace Gisha.MechJam.World.Building
             var structure = Instantiate(_structureToBuild.Prefab, pos, _structureToBuild.Prefab.transform.rotation)
                 .GetComponent<Structure>();
             structure.takenArea = selectedCells;
+            structure.transform.SetParent(structuresParent);
         }
     }
 }

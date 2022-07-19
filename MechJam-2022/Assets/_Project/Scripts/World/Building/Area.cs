@@ -2,7 +2,7 @@
 
 namespace Gisha.MechJam.World.Building
 {
-    public class BuildArea : MonoBehaviour
+    public class Area : MonoBehaviour
     {
         [SerializeField] private Transform topPoint, bottomPoint;
 
@@ -49,7 +49,7 @@ namespace Gisha.MechJam.World.Building
             points[4] = points[0];
             
             for (int i = 0; i < points.Length; i++)
-                _outline.SetPosition(i, points[i] + Vector3.up * 0.55f);
+                _outline.SetPosition(i, points[i]);
         }
     }
 }
