@@ -91,7 +91,7 @@ namespace Gisha.MechJam.AI
 
         #endregion
 
-        protected void SetDestination(Vector3 pos)
+        public void SetDestination(Vector3 pos)
         {
             _agent.SetDestination(pos);
         }

@@ -59,7 +59,7 @@ namespace Gisha.MechJam.AI
         private Transform FindNearestPriorityTarget()
         {
             float minDist = Mathf.Infinity;
-            var targets = FindObjectsOfType<Target>()
+            var targets = FindObjectsOfType<Outpost>()
                 .Where(x => !x.IsCaptured)
                 .ToArray();
 

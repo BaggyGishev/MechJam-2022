@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &416732277759985173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2647465378312143942}
+  m_Layer: 0
+  m_Name: Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2647465378312143942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416732277759985173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.135, y: 0.496, z: -0.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 703239257067648737}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &637315871413108830
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 703239257067648737}
-  - component: {fileID: 8889871399049659033}
+  - component: {fileID: 6759632912985977763}
   m_Layer: 0
   m_Name: Base 2
   m_TagString: Target
@@ -88,10 +118,11 @@ Transform:
   - {fileID: 6116794642394341523}
   - {fileID: 7415633914648485465}
   - {fileID: 198849890694651135}
+  - {fileID: 2647465378312143942}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &8889871399049659033
+--- !u!114 &6759632912985977763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,14 +131,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3893499740816279738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1337c0fdc4fe4e429f94898fdaf1c049, type: 3}
+  m_Script: {fileID: 11500000, guid: 52182de480e4467e8dabce8fb2ce43d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  captureRadius: 15
-  captureSpeed: 1
   buildingTrans: {fileID: 3216635496504505872}
   placeholderMaterial: {fileID: 2100000, guid: f224b1491e914e94bb593625462af249, type: 2}
   capturedMaterial: {fileID: 2100000, guid: 4dab739c2e29013498cb00d881fd888b, type: 2}
+  captureRadius: 6
+  captureSpeed: 1
+  defenderSpawnDelay: 2
+  defenderPrefab: {fileID: 7205730433235832615, guid: f4ca15a92467b874987cb1c2839a38e1, type: 3}
+  spawnPoint: {fileID: 2647465378312143942}
 --- !u!1001 &82992084578484781
 PrefabInstance:
   m_ObjectHideFlags: 0
