@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Linq;
-using Gisha.MechJam.Core;
 using Gisha.MechJam.World.Targets;
 using UnityEngine;
 
@@ -31,8 +30,7 @@ namespace Gisha.MechJam.AI
 
         private void OnCommandSent(Command cmd)
         {
-            var attackCommand = (AttackCommand) cmd;
-            _priorityTarget = attackCommand.Target;
+            _priorityTarget = cmd.Target;
         }
 
         protected override IEnumerator CustomAIRoutine()
@@ -49,11 +47,8 @@ namespace Gisha.MechJam.AI
 
         private void MoveTowardsPriorityTarget()
         {
-            if (CommandManager.CurrentCommand != null)
-            {
-                var attackCmd = (AttackCommand) CommandManager.CurrentCommand;
-                _priorityTarget = attackCmd.Target;
-            }
+            if (_priorityTarget != null && CommandManager.CurrentCommand != null)
+                _priorityTarget = CommandManager.CurrentCommand.Target;
             else
                 _priorityTarget = FindNearestPriorityTarget();
 
