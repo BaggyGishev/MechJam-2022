@@ -1,3 +1,4 @@
+using Gisha.MechJam.UI;
 using Gisha.MechJam.World;
 using UnityEngine;
 
@@ -21,13 +22,13 @@ namespace Gisha.MechJam.Core
         private Vector3 _top, _bottom;
         private Vector3 _movementInput;
         bool _isLargeView;
-        
+
         private void Start()
         {
             _yDeltaRotation = transform.rotation.eulerAngles.y;
             _newPos = transform.position;
             _newRotation = transform.rotation;
-            
+
             _height = transform.position.y;
             _heightStep = (maxHeight - minHeight) / heightStepsCount;
 
@@ -37,6 +38,9 @@ namespace Gisha.MechJam.Core
 
         private void Update()
         {
+            if (PauseController.IsPaused)
+                return;
+
             HandleMouseRotation();
             HandleKeyboardRotation();
 
