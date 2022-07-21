@@ -38,7 +38,6 @@ namespace Gisha.MechJam.World.Building
         private void OnEnable()
         {
             StructureUIElement.OnStructureSelected += SelectStructure;
-            StructureUIElement.OnStructureDeselected += DeselectStructure;
             UIDeactivator.PointerEntered += OnPointerEntered;
             UIDeactivator.PointerExited += OnPointerExited;
         }
@@ -46,7 +45,6 @@ namespace Gisha.MechJam.World.Building
         private void OnDisable()
         {
             StructureUIElement.OnStructureSelected -= SelectStructure;
-            StructureUIElement.OnStructureDeselected -= DeselectStructure;
             UIDeactivator.PointerEntered -= OnPointerEntered;
             UIDeactivator.PointerExited -= OnPointerExited;
         }
@@ -94,6 +92,9 @@ namespace Gisha.MechJam.World.Building
 
         private void SelectStructure(StructureData structureData)
         {
+            if (_structureToBuild == structureData)
+                DeselectStructure();
+            
             _structureToBuild = structureData;
         }
 

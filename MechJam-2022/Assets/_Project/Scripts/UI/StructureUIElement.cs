@@ -13,19 +13,11 @@ namespace Gisha.MechJam.UI
         [SerializeField] private Image structureImage;
 
         public static Action<StructureData> OnStructureSelected;
-        public static Action OnStructureDeselected;
-
-        private bool _isSelected;
         private StructureData _structureData;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!_isSelected)
-                OnStructureSelected?.Invoke(_structureData);
-            else
-                OnStructureDeselected?.Invoke();
-
-            _isSelected = !_isSelected;
+            OnStructureSelected?.Invoke(_structureData);
         }
 
         public void Setup(StructureData newStructureData)

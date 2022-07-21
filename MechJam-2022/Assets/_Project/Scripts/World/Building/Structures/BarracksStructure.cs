@@ -8,18 +8,25 @@ namespace Gisha.MechJam.World.Building.Structures
     {
         [SerializeField] private int allyExtension = 3;
 
-        public static Action BarracksBuilt;
-        
+        public static Action BarracksModified;
+
         protected override void Start()
         {
             base.Start();
+            OnModify();
+        }
 
+        private void OnModify()
+        {
             var barracks = FindObjectsOfType<BarracksStructure>();
             GameManager.Instance.UpdateAllyUnits(barracks.Length * allyExtension);
 
-            Debug.Log($"Current barracks capacity: {GameManager.Instance.MaxAllyUnits}");
+            BarracksModified?.Invoke();
+        }
 
-            BarracksBuilt?.Invoke();
+        private void OnDestroy()
+        {
+            OnModify();
         }
     }
 }

@@ -27,7 +27,6 @@ namespace Gisha.MechJam.World.Building
         private void OnEnable()
         {
             StructureUIElement.OnStructureSelected += EnableHighlight;
-            StructureUIElement.OnStructureDeselected += DisableHighligt;
             BuildingManager.StructureDeselected += DisableHighligt;
             GameManager.InteractionModeChanged += mode => DisableHighligt();
         }
@@ -35,7 +34,6 @@ namespace Gisha.MechJam.World.Building
         private void OnDisable()
         {
             StructureUIElement.OnStructureSelected -= EnableHighlight;
-            StructureUIElement.OnStructureDeselected -= DisableHighligt;
             BuildingManager.StructureDeselected -= DisableHighligt;
             GameManager.InteractionModeChanged -= mode => DisableHighligt();
         }
@@ -45,7 +43,7 @@ namespace Gisha.MechJam.World.Building
             if (BuildingManager.BuildMode != BuildMode.Build)
                 return;
 
-            _meshRenderer.enabled = true;
+            DisableHighligt();
             StartCoroutine(PlaceHighlightRoutine(structureData));
         }
 
@@ -60,6 +58,7 @@ namespace Gisha.MechJam.World.Building
             var strMeshRenderer = structureData.Prefab.GetComponent<MeshRenderer>();
             var strMeshFilter = structureData.Prefab.GetComponent<MeshFilter>();
             transform.rotation = structureData.Prefab.transform.rotation;
+            _meshRenderer.enabled = true;
 
             while (true)
             {

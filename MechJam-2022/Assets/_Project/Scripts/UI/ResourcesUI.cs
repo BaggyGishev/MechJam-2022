@@ -25,7 +25,7 @@ namespace Gisha.MechJam.UI
             MineStructure.SteelProduced += UpdateSteelCountUI;
 
             AllyUnitAI.AllyUnitDestroyed += UpdateCapacityUI;
-            BarracksStructure.BarracksBuilt += UpdateCapacityUI;
+            BarracksStructure.BarracksModified += UpdateCapacityUI;
             FactoryStructure.MechProduced += UpdateCapacityUI;
             GameManager.EnergyCountChanged += UpdateEnergyUI;
         }
@@ -35,7 +35,7 @@ namespace Gisha.MechJam.UI
             MineStructure.SteelProduced -= UpdateSteelCountUI;
 
             AllyUnitAI.AllyUnitDestroyed -= UpdateCapacityUI;
-            BarracksStructure.BarracksBuilt -= UpdateCapacityUI;
+            BarracksStructure.BarracksModified -= UpdateCapacityUI;
             FactoryStructure.MechProduced -= UpdateCapacityUI;
             GameManager.EnergyCountChanged -= UpdateEnergyUI;
         }
