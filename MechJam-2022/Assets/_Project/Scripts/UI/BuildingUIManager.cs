@@ -14,12 +14,12 @@ namespace Gisha.MechJam.UI
 
         [SerializeField] private GameObject structureElementPrefab;
 
-        [Header("Build Modes")] [SerializeField]
-        private Sprite buildModeSprite;
-
-        [SerializeField] private Sprite destroyModeSprite;
-        [SerializeField] private Image buildModeImage;
-
+        [Header("Build Modes")] 
+        [SerializeField] private Image buildModeIconImage;
+        [SerializeField] private Image buildModeBGImage;
+        [SerializeField] private Sprite destroyModeIcon,buildModeIcon;
+        [SerializeField] private Color destroyModeColor,buildModeColor;
+        
 
         private void Awake()
         {
@@ -39,10 +39,12 @@ namespace Gisha.MechJam.UI
             switch (buildMode)
             {
                 case BuildMode.Build:
-                    buildModeImage.sprite = buildModeSprite;
+                    buildModeIconImage.sprite = buildModeIcon;
+                    buildModeBGImage.color = buildModeColor;
                     break;
                 case BuildMode.Destroy:
-                    buildModeImage.sprite = destroyModeSprite;
+                    buildModeIconImage.sprite = destroyModeIcon;
+                    buildModeBGImage.color = destroyModeColor;
                     break;
             }
         }

@@ -9,7 +9,9 @@ namespace Gisha.MechJam.World.Building
         [SerializeField] private GameObject prefab;
         [SerializeField] private Vector2Int dimensionsAddition = Vector2Int.one;
         [SerializeField] private bool isDestroyable;
-
+        [SerializeField] private Sprite structureSprite;
+        
+        
         public GameObject Prefab => prefab;
 
         public bool IsDestroyable => isDestroyable;
@@ -18,6 +20,8 @@ namespace Gisha.MechJam.World.Building
         {
             get => Prefab.GetComponent<MeshFilter>();
         }
+
+        public Sprite StructureSprite => structureSprite;
 
         public Vector2Int GetDimensions(float cellSize)
         {

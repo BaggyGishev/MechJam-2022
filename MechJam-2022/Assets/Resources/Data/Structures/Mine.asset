@@ -16,3 +16,4 @@ MonoBehaviour:
   prefab: {fileID: 8386965862186665495, guid: 87667f60169d2f949adadef22745be54, type: 3}
   dimensionsAddition: {x: 1, y: 1}
   isDestroyable: 1
+  structureSprite: {fileID: 21300000, guid: 161fe901459e6164382517171dd85192, type: 3}
