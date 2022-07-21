@@ -1,5 +1,6 @@
 ﻿using System;
 using Gisha.MechJam.Core;
+using Gisha.MechJam.UI;
 using Gisha.MechJam.World;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Gisha.MechJam.AI
         public static Action<Command> CommandSent;
 
         private LayerMask _targetLayerMask;
+        private bool _isDisabled;
 
         private void Awake()
         {
@@ -22,11 +24,33 @@ namespace Gisha.MechJam.AI
 
         private void Update()
         {
-            if (GameManager.InteractionMode != InteractionMode.Command)
+            if (GameManager.InteractionMode != InteractionMode.Command || _isDisabled)
                 return;
 
             if (Input.GetMouseButtonDown(0))
                 CommandRaycast();
+        }
+
+        private void OnEnable()
+        {
+            UIDeactivator.PointerEntered += OnPointerEntered;
+            UIDeactivator.PointerExited += OnPointerExited;
+        }
+
+        private void OnDisable()
+        {
+            UIDeactivator.PointerEntered -= OnPointerEntered;
+            UIDeactivator.PointerExited -= OnPointerExited; 
+        }
+
+        private void OnPointerExited()
+        {
+            _isDisabled = false;
+        }
+
+        private void OnPointerEntered()
+        {
+            _isDisabled = true;
         }
 
         private void CommandRaycast()

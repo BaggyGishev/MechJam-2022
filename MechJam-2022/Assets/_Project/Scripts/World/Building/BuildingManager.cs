@@ -16,18 +16,18 @@ namespace Gisha.MechJam.World.Building
         [SerializeField] private Transform structuresParent;
 
         public static Action StructureDeselected;
+        public static BuildMode BuildMode { private set; get; }
 
         private StructureData _structureToBuild;
         private LayerMask _groundLayerMask;
         private LayerMask _structureLayerMask;
-
-        public static BuildMode BuildMode { private set; get; }
+        private bool _isDisabled;
 
         private void Awake()
         {
             _groundLayerMask = 1 << LayerMask.NameToLayer("Ground");
             _structureLayerMask = 1 << LayerMask.NameToLayer("Structure");
-            BuildMode = Building.BuildMode.Build;
+            BuildMode = BuildMode.Build;
         }
 
         private void Start()
@@ -39,22 +39,26 @@ namespace Gisha.MechJam.World.Building
         {
             StructureUIElement.OnStructureSelected += SelectStructure;
             StructureUIElement.OnStructureDeselected += DeselectStructure;
+            UIDeactivator.PointerEntered += OnPointerEntered;
+            UIDeactivator.PointerExited += OnPointerExited;
         }
 
         private void OnDisable()
         {
             StructureUIElement.OnStructureSelected -= SelectStructure;
             StructureUIElement.OnStructureDeselected -= DeselectStructure;
+            UIDeactivator.PointerEntered -= OnPointerEntered;
+            UIDeactivator.PointerExited -= OnPointerExited;
         }
 
         private void Update()
         {
-            if (GameManager.InteractionMode != InteractionMode.Build)
+            if (GameManager.InteractionMode != InteractionMode.Build || _isDisabled)
                 return;
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (BuildMode == Building.BuildMode.Build)
+                if (BuildMode == BuildMode.Build)
                 {
                     if (_structureToBuild == null)
                         return;
@@ -64,6 +68,16 @@ namespace Gisha.MechJam.World.Building
                 else
                     DestroyRaycast();
             }
+        }
+
+        private void OnPointerExited()
+        {
+            _isDisabled = false;
+        }
+
+        private void OnPointerEntered()
+        {
+            _isDisabled = true;
         }
 
         public void OnClick_ChangeMode()
