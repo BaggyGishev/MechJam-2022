@@ -82,7 +82,7 @@ namespace Gisha.MechJam.World.Targets
             return true;
         }
 
-        private void FinishCapture()
+        public virtual void FinishCapture()
         {
             SwitchMaterials();
             GameManager.Instance.AddEnergyCount(1);

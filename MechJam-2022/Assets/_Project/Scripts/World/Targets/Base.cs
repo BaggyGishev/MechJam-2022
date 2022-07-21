@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Gisha.MechJam.AI;
+using Gisha.MechJam.Core;
 using UnityEngine;
 
 namespace Gisha.MechJam.World.Targets
@@ -21,6 +22,13 @@ namespace Gisha.MechJam.World.Targets
             _initialDefendersCount = GetComponentsInChildren<EnemyUnitAI>().Length;
 
             StartCoroutine(CheckDefendersCount());
+        }
+
+        // Extra energy for capturing enemy base.
+        public override void FinishCapture()
+        {
+            base.FinishCapture();
+            GameManager.Instance.AddEnergyCount(1);
         }
 
         private IEnumerator CheckDefendersCount()
