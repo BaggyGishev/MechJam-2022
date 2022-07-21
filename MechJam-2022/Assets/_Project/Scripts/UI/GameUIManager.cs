@@ -1,5 +1,7 @@
 using Gisha.MechJam.Core;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gisha.MechJam.UI
 {
@@ -7,6 +9,10 @@ namespace Gisha.MechJam.UI
     {
         [SerializeField] private GameObject buildPanel;
         [SerializeField] private GameObject commandPanel;
+        [Space] [SerializeField] private Image interactionModeImage;
+        [SerializeField] private TMP_Text interactionModeText;
+        [SerializeField] private Color buildModeColor, commandModeColor;
+
 
         private int _interactionModeIndex;
 
@@ -27,10 +33,14 @@ namespace Gisha.MechJam.UI
                 case InteractionMode.Build:
                     buildPanel.SetActive(true);
                     commandPanel.SetActive(false);
+                    interactionModeImage.color = buildModeColor;
+                    interactionModeText.text = "Build";
                     break;
                 case InteractionMode.Command:
                     buildPanel.SetActive(false);
                     commandPanel.SetActive(true);
+                    interactionModeImage.color = commandModeColor;
+                    interactionModeText.text = "Command";
                     break;
             }
         }

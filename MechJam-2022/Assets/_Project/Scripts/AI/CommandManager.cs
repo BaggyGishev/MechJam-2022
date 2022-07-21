@@ -26,10 +26,7 @@ namespace Gisha.MechJam.AI
                 return;
 
             if (Input.GetMouseButtonDown(0))
-            {
                 CommandRaycast();
-                _commandVisualizer.Visualize(CurrentCommand);
-            }
         }
 
         private void CommandRaycast()
@@ -46,6 +43,7 @@ namespace Gisha.MechJam.AI
 
                 CommandSent?.Invoke(CurrentCommand);
                 CurrentCommand.Implement();
+                _commandVisualizer.Visualize(CurrentCommand);
             }
         }
     }
