@@ -18320,9 +18320,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf4889b9d97c794d84d0d3cfaf98388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicCollection: []
+  musicCollection:
+  - name: Music5
+    audioClip: {fileID: 8300000, guid: b551f9ff9f4ed4f30a95ff2afd8a8824, type: 3}
+    isLooping: 0
+    isFade: 1
+    volume: 0.4
+    pitch: 1
+  - name: Music4
+    audioClip: {fileID: 8300000, guid: 0735fca72970745e8871d06c7f021b57, type: 3}
+    isLooping: 0
+    isFade: 1
+    volume: 0.4
+    pitch: 1
+  - name: Music3
+    audioClip: {fileID: 8300000, guid: dbf6dd7e8d230488ea47b1458ce65f59, type: 3}
+    isLooping: 0
+    isFade: 1
+    volume: 0.4
+    pitch: 1
+  - name: Music2
+    audioClip: {fileID: 8300000, guid: e9a52cab8d2c840448c0484444b34cac, type: 3}
+    isLooping: 0
+    isFade: 1
+    volume: 0.4
+    pitch: 1
+  - name: Music
+    audioClip: {fileID: 8300000, guid: 166471aa408354a628f742ec3ed1be23, type: 3}
+    isLooping: 1
+    isFade: 1
+    volume: 0.4
+    pitch: 1
   sfxCollection: []
-  fadeTransitionSpeed: 0
+  fadeTransitionSpeed: 1
 --- !u!1001 &586628970
 PrefabInstance:
   m_ObjectHideFlags: 0
