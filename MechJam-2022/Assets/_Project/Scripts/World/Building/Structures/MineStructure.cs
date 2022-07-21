@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Gisha.Effects.Audio;
 using Gisha.MechJam.Core;
 using UnityEngine;
 
@@ -26,6 +27,8 @@ namespace Gisha.MechJam.World.Building.Structures
                 GameManager.Instance.AddSteelCount(countPerIteration);
                 SteelProduced?.Invoke();
                 Debug.Log($"Current metal count is: {GameManager.Instance.SteelCount}");
+                
+                AudioManager.Instance.PlaySFX("mine_produce");
             }
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Gisha.Effects.Audio;
 using Gisha.MechJam.AI;
 using Gisha.MechJam.Core;
 using UnityEngine;
@@ -88,6 +89,8 @@ namespace Gisha.MechJam.World.Targets
             GameManager.Instance.AddEnergyCount(1);
             OutpostCaptured?.Invoke();
             StopAllCoroutines();
+            
+            AudioManager.Instance.PlaySFX("area_capture");
         }
 
         private void SwitchMaterials()

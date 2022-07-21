@@ -1,4 +1,5 @@
 using System;
+using Gisha.Effects.Audio;
 using Gisha.MechJam.Core;
 using Gisha.MechJam.UI;
 using UnityEngine;
@@ -88,6 +89,8 @@ namespace Gisha.MechJam.World.Building
 
             BuildingUIManager.Instance.UpdateBuildMode(BuildMode);
             DeselectStructure();
+            
+            AudioManager.Instance.PlaySFX("click");
         }
 
         private void SelectStructure(StructureData structureData)
@@ -123,6 +126,8 @@ namespace Gisha.MechJam.World.Building
 
                     BuildStructure(pos, selectedCells);
                 }
+                else
+                    AudioManager.Instance.PlaySFX("build_wrong");
             }
         }
 
@@ -138,6 +143,7 @@ namespace Gisha.MechJam.World.Building
                     structure.FreeTheArea();
                     Destroy(hitInfo.collider.gameObject);
                     GameManager.Instance.AddEnergyCount(1);
+                    AudioManager.Instance.PlaySFX("demolish");
                 }
             }
         }
@@ -150,6 +156,8 @@ namespace Gisha.MechJam.World.Building
             structure.transform.SetParent(structuresParent);
 
             GameManager.Instance.AddEnergyCount(-1);
+            
+            AudioManager.Instance.PlaySFX("build_correct");
         }
     }
 }

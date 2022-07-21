@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Gisha.Effects.Audio;
 using Gisha.MechJam.Core;
 using UnityEngine;
 
@@ -32,6 +33,8 @@ namespace Gisha.MechJam.World.Building.Structures
                     Instantiate(mechPrefab, spawnpoint.position, Quaternion.identity);
                     GameManager.Instance.AddSteelCount(-steelPerMech);
                     MechProduced?.Invoke();
+                    
+                    AudioManager.Instance.PlaySFX("factory_produce");
                 }
             }
         }

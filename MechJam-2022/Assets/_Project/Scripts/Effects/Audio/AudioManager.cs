@@ -50,6 +50,7 @@ namespace Gisha.Effects.Audio
         private void Start()
         {
             PlayMusic("Music");
+            PlaySFX("ambient_desert");
         }
 
         private void CreateInstance()

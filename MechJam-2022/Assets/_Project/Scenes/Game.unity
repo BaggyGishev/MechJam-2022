@@ -18351,8 +18351,62 @@ MonoBehaviour:
     isFade: 1
     volume: 0.4
     pitch: 1
-  sfxCollection: []
-  fadeTransitionSpeed: 1
+  sfxCollection:
+  - name: ambient_desert
+    audioClip: {fileID: 8300000, guid: 4b1aa00b1775afa4fbaa243e6f29aeed, type: 3}
+    isLooping: 1
+    isFade: 0
+    volume: 0.7
+    pitch: 1
+  - name: area_capture
+    audioClip: {fileID: 8300000, guid: af643f11395d6d449b84e0fd764da7f1, type: 3}
+    isLooping: 0
+    isFade: 0
+    volume: 1
+    pitch: 1
+  - name: build_correct
+    audioClip: {fileID: 8300000, guid: 2072fa012b49e7d40a08a49a3940a392, type: 3}
+    isLooping: 0
+    isFade: 0
+    volume: 1
+    pitch: 1
+  - name: build_wrong
+    audioClip: {fileID: 8300000, guid: 2e0d0288db1c3444782f51c396634a5e, type: 3}
+    isLooping: 0
+    isFade: 0
+    volume: 1
+    pitch: 1
+  - name: click
+    audioClip: {fileID: 8300000, guid: 3b32e27f49615394098e1162ef4a6195, type: 3}
+    isLooping: 0
+    isFade: 0
+    volume: 1
+    pitch: 1
+  - name: command
+    audioClip: {fileID: 8300000, guid: 5abacf6f910a61547a806adda3c5750b, type: 3}
+    isLooping: 0
+    isFade: 0
+    volume: 1
+    pitch: 1
+  - name: demolish
+    audioClip: {fileID: 8300000, guid: 1ec2688aa7938e44881f1ba9ccf41089, type: 3}
+    isLooping: 0
+    isFade: 0
+    volume: 1
+    pitch: 1
+  - name: factory_produce
+    audioClip: {fileID: 8300000, guid: e9b73d9f0392fdb42ad0fbbc132b73dc, type: 3}
+    isLooping: 0
+    isFade: 0
+    volume: 0.5
+    pitch: 1
+  - name: mine_produce
+    audioClip: {fileID: 8300000, guid: e23fc1878844fc349a4cb90f73b7b9af, type: 3}
+    isLooping: 0
+    isFade: 0
+    volume: 0.5
+    pitch: 1
+  fadeTransitionSpeed: 0.5
 --- !u!1001 &586628970
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,22 +11,26 @@ namespace Gisha.MechJam.AI
         [Header("General")] [SerializeField] private Transform topMount;
         [Header("Rotation")] [SerializeField] private float bodyRotationSmoothness = 3f;
         [SerializeField] private float turretRotationSmoothness = 3f;
+        [Header("Audio")] [SerializeField] private AudioClip shootAudioClip;
+        [SerializeField] private AudioClip dieAudioClip;
+
         [Header("Other")] [SerializeField] private float attackRadius = 5f;
         [SerializeField] private float followRadius = 10f;
         [Space] [SerializeField] private float maxHealth = 5f;
         [SerializeField] private float attackDelay = 1f;
-
         private Transform AttackTarget { get; set; }
         protected LayerMask LayerToAttack { get; set; }
 
         private NavObstacleAgent _agent;
         private UnitAnimationController _animationController;
+        private AudioSource _audioSource;
 
         private float _health;
         private bool _isDestroyed;
 
         public virtual void Awake()
         {
+            _audioSource = GetComponent<AudioSource>();
             _agent = GetComponent<NavObstacleAgent>();
             _animationController = new UnitAnimationController(GetComponent<Animator>());
         }
@@ -80,7 +84,10 @@ namespace Gisha.MechJam.AI
                             if (AttackTarget != null)
                             {
                                 if (AttackTarget.TryGetComponent(out IDamageable damageable))
+                                {
                                     damageable.GetDamage(1);
+                                    _audioSource.PlayOneShot(shootAudioClip);
+                                }
                             }
                         }
                     }
@@ -141,6 +148,8 @@ namespace Gisha.MechJam.AI
             Destroy(gameObject, 1.25f);
             _agent.enabled = false;
             enabled = false;
+
+            _audioSource.PlayOneShot(dieAudioClip);
         }
 
 

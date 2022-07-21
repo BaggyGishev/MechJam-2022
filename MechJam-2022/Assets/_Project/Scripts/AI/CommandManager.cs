@@ -1,4 +1,5 @@
 ﻿using System;
+using Gisha.Effects.Audio;
 using Gisha.MechJam.Core;
 using Gisha.MechJam.UI;
 using Gisha.MechJam.World;
@@ -76,6 +77,8 @@ namespace Gisha.MechJam.AI
                 CommandSent?.Invoke(CurrentCommand);
                 CurrentCommand.Implement();
                 commandVisualizer.Visualize(CurrentCommand);
+                
+                AudioManager.Instance.PlaySFX("command");
             }
         }
     }

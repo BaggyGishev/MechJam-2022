@@ -1,4 +1,5 @@
 ﻿using System;
+using Gisha.Effects.Audio;
 using Gisha.MechJam.World.Building;
 using TMPro;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Gisha.MechJam.UI
         public void OnPointerClick(PointerEventData eventData)
         {
             OnStructureSelected?.Invoke(_structureData);
+            AudioManager.Instance.PlaySFX("click");
         }
 
         public void Setup(StructureData newStructureData)

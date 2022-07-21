@@ -1,3 +1,4 @@
+using Gisha.Effects.Audio;
 using Gisha.MechJam.Core;
 using TMPro;
 using UnityEngine;
@@ -24,6 +25,8 @@ namespace Gisha.MechJam.UI
 
             GameManager.Instance.ChangeInteractionMode((InteractionMode) _interactionModeIndex);
             UpdateUI((InteractionMode) _interactionModeIndex);
+            
+            AudioManager.Instance.PlaySFX("click");
         }
 
         private void UpdateUI(InteractionMode interactionMode)
