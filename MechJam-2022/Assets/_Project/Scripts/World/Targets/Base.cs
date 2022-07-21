@@ -27,12 +27,13 @@ namespace Gisha.MechJam.World.Targets
         {
             while (true)
             {
-                yield return defenderSpawnDelay;
+                yield return new WaitForSeconds(defenderSpawnDelay);
                 if (GetComponentsInChildren<EnemyUnitAI>().Length < _initialDefendersCount)
                 {
                     Vector3 offset = new Vector3(Random.Range(5f, 7f), 0f, Random.Range(5f, 7f));
                     var defender = Instantiate(defenderPrefab, spawnPoint.position, spawnPoint.rotation)
                         .GetComponent<UnitAI>();
+                    defender.transform.SetParent(transform);
 
                     Vector3 navPosition = transform.position + offset;
                     defender.SetDestination(navPosition);

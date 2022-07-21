@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Gisha.MechJam.AI;
@@ -18,15 +19,14 @@ namespace Gisha.MechJam.World.Targets
         [SerializeField] private float captureRadius = 15f;
         [SerializeField] private float captureSpeed = 1f;
 
-        private LayerMask _allyLayerMask;
-
-        private List<EnemyUnitAI> _defenders = new List<EnemyUnitAI>();
-        private float _captureProgress;
-        private bool _isCaptured;
-
+        public static Action OutpostCaptured; 
         public List<EnemyUnitAI> Defenders => _defenders;
         public bool IsCaptured => _isCaptured;
 
+        private LayerMask _allyLayerMask;
+        private List<EnemyUnitAI> _defenders = new List<EnemyUnitAI>();
+        private float _captureProgress;
+        private bool _isCaptured;
 
         public virtual void Start()
         {
@@ -86,6 +86,8 @@ namespace Gisha.MechJam.World.Targets
         {
             SwitchMaterials();
             GameManager.Instance.AddEnergyCount(1);
+            OutpostCaptured?.Invoke();
+            StopAllCoroutines();
         }
 
         private void SwitchMaterials()

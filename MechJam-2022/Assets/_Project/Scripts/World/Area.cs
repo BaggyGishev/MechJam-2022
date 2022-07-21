@@ -27,7 +27,7 @@ namespace Gisha.MechJam.World
             Vector3 center = Vector3.zero;
 
             float xSize = Mathf.Abs(topPoint.localPosition.x) + Mathf.Abs(bottomPoint.localPosition.x);
-            float ySize = 15f;
+            float ySize = 2.5f;
             float zSize = Mathf.Abs(topPoint.localPosition.z) + Mathf.Abs(bottomPoint.localPosition.z);
 
             _collider.size = new Vector3(xSize, ySize, zSize);
@@ -38,6 +38,8 @@ namespace Gisha.MechJam.World
         {
             _outline.startColor = captureColor;
             _outline.endColor = captureColor;
+
+            isAlly = true;
         }
     }
 }

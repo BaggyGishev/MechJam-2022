@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 1446590814734840140}
   - component: {fileID: 2575083974411157225}
   - component: {fileID: 313139205742201379}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: structure_closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967287
   m_IsActive: 1
 --- !u!4 &1446590814734840140
 Transform:
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2258698162072759286}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 34.926968, y: 0.06472564, z: -23.707546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f224b1491e914e94bb593625462af249, type: 2}
-  - {fileID: 2100000, guid: 31f79f89ae906bc428932972fb056ce2, type: 2}
+  - {fileID: 2100000, guid: 87206cc87e050e54d9f8348812b117ed, type: 2}
   - {fileID: 2100000, guid: 31f79f89ae906bc428932972fb056ce2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

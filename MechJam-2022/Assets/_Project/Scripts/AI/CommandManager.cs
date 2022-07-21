@@ -2,13 +2,14 @@
 using Gisha.MechJam.Core;
 using Gisha.MechJam.UI;
 using Gisha.MechJam.World;
+using Gisha.MechJam.World.Targets;
 using UnityEngine;
 
 namespace Gisha.MechJam.AI
 {
     public class CommandManager : MonoBehaviour
     {
-        [SerializeField] private CommandVisualizer _commandVisualizer;
+        [SerializeField] private CommandVisualizer commandVisualizer;
 
         public static Command CurrentCommand { private set; get; }
 
@@ -35,12 +36,19 @@ namespace Gisha.MechJam.AI
         {
             UIDeactivator.PointerEntered += OnPointerEntered;
             UIDeactivator.PointerExited += OnPointerExited;
+            Outpost.OutpostCaptured += OnOutpostCaptured;
         }
 
         private void OnDisable()
         {
             UIDeactivator.PointerEntered -= OnPointerEntered;
-            UIDeactivator.PointerExited -= OnPointerExited; 
+            UIDeactivator.PointerExited -= OnPointerExited;
+            Outpost.OutpostCaptured -= OnOutpostCaptured;
+        }
+
+        private void OnOutpostCaptured()
+        {
+            commandVisualizer.Hide();
         }
 
         private void OnPointerExited()
@@ -67,7 +75,7 @@ namespace Gisha.MechJam.AI
 
                 CommandSent?.Invoke(CurrentCommand);
                 CurrentCommand.Implement();
-                _commandVisualizer.Visualize(CurrentCommand);
+                commandVisualizer.Visualize(CurrentCommand);
             }
         }
     }
@@ -127,6 +135,11 @@ namespace Gisha.MechJam.AI
             }
 
             visualizer.transform.position = command.Target.position;
+        }
+
+        public void Hide()
+        {
+            _spriteRenderer.enabled = false;
         }
     }
 }

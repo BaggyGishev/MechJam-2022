@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Gisha.MechJam.Core;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Gisha.MechJam.AI
 {
@@ -20,10 +21,10 @@ namespace Gisha.MechJam.AI
 
         private NavObstacleAgent _agent;
         private UnitAnimationController _animationController;
-        
+
         private float _health;
         private bool _isDestroyed;
-        
+
         public virtual void Awake()
         {
             _agent = GetComponent<NavObstacleAgent>();
@@ -40,7 +41,7 @@ namespace Gisha.MechJam.AI
         {
             if (_isDestroyed)
                 return;
-            
+
             if (_agent.Velocity != Vector3.zero)
             {
                 UpdateBodyRotation();
@@ -130,7 +131,7 @@ namespace Gisha.MechJam.AI
         {
             _health -= damage;
 
-            if (_health <= 0) 
+            if (_health <= 0)
                 Die();
         }
 

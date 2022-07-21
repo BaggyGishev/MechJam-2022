@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 406358257795879871}
   - component: {fileID: 3606388500954831898}
   - component: {fileID: 1578652896967764176}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rail_corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &406358257795879871
 Transform:
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074244859927726341}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 38.481808, y: 0.045532703, z: -25.816923}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
