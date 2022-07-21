@@ -120,7 +120,7 @@ namespace Gisha.MechJam.AI
             if (AttackTarget == null)
                 return;
 
-            var direction = (AttackTarget.position - transform.position).normalized;
+            var direction = (AttackTarget.position - topMount.position).normalized;
             var rotation = Quaternion.LookRotation(direction);
             topMount.rotation =
                 Quaternion.Slerp(topMount.rotation, rotation, turretRotationSmoothness * Time.deltaTime);
