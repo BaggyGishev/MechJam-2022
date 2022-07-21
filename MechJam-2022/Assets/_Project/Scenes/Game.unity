@@ -8801,7 +8801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6
-  movementSmoothness: 0
+  movementSmoothness: 0.1
   movementMouseSens: 0.15
   rotationSpeed: 70
   rotationSmoothness: 0.05
