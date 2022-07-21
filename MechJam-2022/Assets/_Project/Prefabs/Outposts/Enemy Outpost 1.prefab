@@ -51,7 +51,7 @@ MonoBehaviour:
   buildingTrans: {fileID: 2943025708460060827}
   placeholderMaterial: {fileID: 2100000, guid: f224b1491e914e94bb593625462af249, type: 2}
   capturedMaterial: {fileID: 2100000, guid: 4dab739c2e29013498cb00d881fd888b, type: 2}
-  captureRadius: 54
+  captureRadius: 5
   captureSpeed: 1
 --- !u!1 &5699814854319281842
 GameObject:

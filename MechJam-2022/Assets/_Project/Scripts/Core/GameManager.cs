@@ -17,10 +17,14 @@ namespace Gisha.MechJam.Core
 
         private int _maxAllyUnits;
         private int _steelCount;
+        private int _energyCount = 3;
         public bool IsSustainableAmountOfAllyUnits => CurrentAllyUnits + 1 <= MaxAllyUnits;
         public int MaxAllyUnits => _maxAllyUnits;
         public int CurrentAllyUnits => FindObjectsOfType<AllyUnitAI>().Length;
         public int SteelCount => _steelCount;
+        public int EnergyCount => _energyCount;
+
+        public static Action EnergyCountChanged;
 
         public static InteractionMode InteractionMode { get; private set; }
         public static Action<InteractionMode> InteractionModeChanged;
@@ -45,6 +49,12 @@ namespace Gisha.MechJam.Core
         public void AddSteelCount(int count)
         {
             _steelCount += count;
+        }
+
+        public void AddEnergyCount(int count)
+        {
+            _energyCount += count;
+            EnergyCountChanged?.Invoke();
         }
     }
 }

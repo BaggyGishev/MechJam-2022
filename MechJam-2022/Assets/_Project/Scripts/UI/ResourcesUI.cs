@@ -11,11 +11,13 @@ namespace Gisha.MechJam.UI
     {
         [SerializeField] private TMP_Text capacityText;
         [SerializeField] private TMP_Text steelCountText;
+        [SerializeField] private TMP_Text energyCountText;
 
         private void Start()
         {
             UpdateCapacityUI();
             UpdateSteelCountUI();
+            UpdateEnergyUI();
         }
 
         private void OnEnable()
@@ -25,6 +27,7 @@ namespace Gisha.MechJam.UI
             AllyUnitAI.AllyUnitDestroyed += UpdateCapacityUI;
             BarracksStructure.BarracksBuilt += UpdateCapacityUI;
             FactoryStructure.MechProduced += UpdateCapacityUI;
+            GameManager.EnergyCountChanged += UpdateEnergyUI;
         }
 
         private void OnDisable()
@@ -34,6 +37,7 @@ namespace Gisha.MechJam.UI
             AllyUnitAI.AllyUnitDestroyed -= UpdateCapacityUI;
             BarracksStructure.BarracksBuilt -= UpdateCapacityUI;
             FactoryStructure.MechProduced -= UpdateCapacityUI;
+            GameManager.EnergyCountChanged -= UpdateEnergyUI;
         }
 
         private void UpdateSteelCountUI()
@@ -44,6 +48,11 @@ namespace Gisha.MechJam.UI
         private void UpdateCapacityUI()
         {
             capacityText.text = $"{GameManager.Instance.CurrentAllyUnits}/{GameManager.Instance.MaxAllyUnits}";
+        }
+
+        private void UpdateEnergyUI()
+        {
+            energyCountText.text = GameManager.Instance.EnergyCount.ToString();
         }
     }
 }

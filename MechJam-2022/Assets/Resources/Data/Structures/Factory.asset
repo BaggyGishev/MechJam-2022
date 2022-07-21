@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structureName: Factory
   prefab: {fileID: 2010284035925870262, guid: 7ef270142afba0b4e9c717844b4b9ca3, type: 3}
+  dimensionsAddition: {x: 1, y: 1}
+  isDestroyable: 1

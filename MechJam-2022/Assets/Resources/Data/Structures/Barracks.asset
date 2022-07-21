@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structureName: Barracks
   prefab: {fileID: 5033631716084465575, guid: f69eb53ab8222e04f9118bba7fd2aa2e, type: 3}
+  dimensionsAddition: {x: 1, y: 1}
+  isDestroyable: 1

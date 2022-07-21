@@ -6,6 +6,8 @@ namespace Gisha.MechJam.World.Building
     {
         [SerializeField] private StructureData structureData;
 
+        public bool IsDestroyable => structureData.IsDestroyable;
+        
         public Cell[] takenArea;
 
         protected virtual void Start()
@@ -20,6 +22,17 @@ namespace Gisha.MechJam.World.Building
                     continue;
                 
                 takenArea[i].isBlockedByStructure = true;
+            }
+        }
+
+        public void FreeTheArea()
+        {
+            for (int i = 0; i < takenArea.Length; i++)
+            {
+                if (takenArea[i] == null)
+                    continue;
+                
+                takenArea[i].isBlockedByStructure = false;
             }
         }
     }

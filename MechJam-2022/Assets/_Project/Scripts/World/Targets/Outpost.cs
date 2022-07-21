@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Gisha.MechJam.AI;
+using Gisha.MechJam.Core;
 using UnityEngine;
 
 namespace Gisha.MechJam.World.Targets
@@ -81,9 +82,10 @@ namespace Gisha.MechJam.World.Targets
             return true;
         }
 
-        public virtual void FinishCapture()
+        private void FinishCapture()
         {
             SwitchMaterials();
+            GameManager.Instance.AddEnergyCount(1);
         }
 
         private void SwitchMaterials()

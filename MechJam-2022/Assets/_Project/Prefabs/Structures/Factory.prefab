@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 64469719166461795}
   - component: {fileID: 6949766954251412048}
   - component: {fileID: -5514276378565159379}
-  m_Layer: 0
+  - component: {fileID: -3416395648303083542}
+  m_Layer: 11
   m_Name: factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +136,19 @@ MonoBehaviour:
   spawnpoint: {fileID: 4194119004355416906}
   produceDelay: 5
   steelPerMech: 20
+--- !u!65 &-3416395648303083542
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010284035925870262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4188825, y: 1.5494529, z: 2.9405024}
+  m_Center: {x: 0.054935813, y: 0.77418417, z: 0.018583894}
 --- !u!1 &8380560960845398705
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4194119004355416906}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}

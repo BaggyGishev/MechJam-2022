@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 8386965862177289687}
   - component: {fileID: 4119459867335447086}
   - component: {fileID: 6389081671173649848}
-  m_Layer: 0
+  - component: {fileID: 3209197299374841504}
+  m_Layer: 11
   m_Name: mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,3 +140,16 @@ MonoBehaviour:
   structureData: {fileID: 11400000, guid: 4f619e9b8ac69d349a83d6ba61cafdc6, type: 2}
   produceDelayInSeconds: 4
   countPerIteration: 5
+--- !u!65 &3209197299374841504
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386965862186665495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7543217, y: 1.6684017, z: 3.849936}
+  m_Center: {x: 0.0030789971, y: 0.8240346, z: -0.01594454}

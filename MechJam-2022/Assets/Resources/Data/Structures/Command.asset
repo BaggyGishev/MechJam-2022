@@ -15,3 +15,4 @@ MonoBehaviour:
   structureName: Command Center
   prefab: {fileID: 3443398899139107568, guid: f92c4f933d87bb94bb5f042e482797a1, type: 3}
   dimensionsAddition: {x: 1, y: 1}
+  isDestroyable: 1

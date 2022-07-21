@@ -28,6 +28,7 @@ namespace Gisha.MechJam.World.Building
         {
             StructureUIElement.OnStructureSelected += EnableHighlight;
             StructureUIElement.OnStructureDeselected += DisableHighligt;
+            BuildingManager.StructureDeselected += DisableHighligt;
             GameManager.InteractionModeChanged += mode => DisableHighligt();
         }
 
@@ -35,11 +36,15 @@ namespace Gisha.MechJam.World.Building
         {
             StructureUIElement.OnStructureSelected -= EnableHighlight;
             StructureUIElement.OnStructureDeselected -= DisableHighligt;
+            BuildingManager.StructureDeselected -= DisableHighligt;
             GameManager.InteractionModeChanged -= mode => DisableHighligt();
         }
 
         private void EnableHighlight(StructureData structureData)
         {
+            if (BuildingManager.BuildMode != BuildMode.Build)
+                return;
+
             _meshRenderer.enabled = true;
             StartCoroutine(PlaceHighlightRoutine(structureData));
         }

@@ -8,8 +8,11 @@ namespace Gisha.MechJam.World.Building
         [SerializeField] private string structureName;
         [SerializeField] private GameObject prefab;
         [SerializeField] private Vector2Int dimensionsAddition = Vector2Int.one;
+        [SerializeField] private bool isDestroyable;
 
         public GameObject Prefab => prefab;
+
+        public bool IsDestroyable => isDestroyable;
 
         public MeshFilter MeshFilter
         {

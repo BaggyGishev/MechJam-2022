@@ -5,16 +5,34 @@ using UnityEngine;
 
 namespace Gisha.MechJam.World.Building
 {
+    public enum BuildMode
+    {
+        Build,
+        Destroy
+    }
+
     public class BuildingManager : MonoBehaviour
     {
         [SerializeField] private Transform structuresParent;
 
+        public static Action StructureDeselected;
+
         private StructureData _structureToBuild;
         private LayerMask _groundLayerMask;
+        private LayerMask _structureLayerMask;
+
+        public static BuildMode BuildMode { private set; get; }
 
         private void Awake()
         {
             _groundLayerMask = 1 << LayerMask.NameToLayer("Ground");
+            _structureLayerMask = 1 << LayerMask.NameToLayer("Structure");
+            BuildMode = Building.BuildMode.Build;
+        }
+
+        private void Start()
+        {
+            BuildingUIManager.Instance.UpdateBuildMode(BuildMode);
         }
 
         private void OnEnable()
@@ -34,21 +52,41 @@ namespace Gisha.MechJam.World.Building
             if (GameManager.InteractionMode != InteractionMode.Build)
                 return;
 
-            if (_structureToBuild == null)
-                return;
-
             if (Input.GetMouseButtonDown(0))
-                BuildRaycast();
+            {
+                if (BuildMode == Building.BuildMode.Build)
+                {
+                    if (_structureToBuild == null)
+                        return;
+
+                    BuildRaycast();
+                }
+                else
+                    DestroyRaycast();
+            }
         }
 
-        public void SelectStructure(StructureData structureData)
+        public void OnClick_ChangeMode()
+        {
+            int index = (int) BuildMode;
+            index++;
+            if (index > 1)
+                index = 0;
+            BuildMode = (BuildMode) index;
+
+            BuildingUIManager.Instance.UpdateBuildMode(BuildMode);
+            DeselectStructure();
+        }
+
+        private void SelectStructure(StructureData structureData)
         {
             _structureToBuild = structureData;
         }
 
-        public void DeselectStructure()
+        private void DeselectStructure()
         {
             _structureToBuild = null;
+            StructureDeselected?.Invoke();
         }
 
         private void BuildRaycast()
@@ -61,7 +99,7 @@ namespace Gisha.MechJam.World.Building
                     _structureToBuild.GetDimensions(GridManager.Grid.CellSize),
                     _structureToBuild.Prefab.transform.rotation.eulerAngles.y);
 
-                if (!GridManager.Grid.CheckForBusyCell(selectedCells))
+                if (!GridManager.Grid.CheckForBusyCell(selectedCells) && GameManager.Instance.EnergyCount > 0)
                 {
                     Cell firstCell = selectedCells[0];
                     Cell lastCell = selectedCells[selectedCells.Length - 1];
@@ -73,12 +111,30 @@ namespace Gisha.MechJam.World.Building
             }
         }
 
+        // Destroy structure and return 1 wasted energy.
+        private void DestroyRaycast()
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out var hitInfo, 100f, _structureLayerMask))
+            {
+                var structure = hitInfo.collider.GetComponent<Structure>();
+                if (hitInfo.collider != null && structure != null && structure.IsDestroyable)
+                {
+                    structure.FreeTheArea();
+                    Destroy(hitInfo.collider.gameObject);
+                    GameManager.Instance.AddEnergyCount(1);
+                }
+            }
+        }
+
         private void BuildStructure(Vector3 pos, Cell[] selectedCells)
         {
             var structure = Instantiate(_structureToBuild.Prefab, pos, _structureToBuild.Prefab.transform.rotation)
                 .GetComponent<Structure>();
             structure.takenArea = selectedCells;
             structure.transform.SetParent(structuresParent);
+
+            GameManager.Instance.AddEnergyCount(-1);
         }
     }
 }
